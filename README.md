@@ -13,4 +13,4 @@ More info here: https://degenai-labs.github.io/research/hallu-world/
 
 Associated HalluWorld benchmark paper is here: https://arxiv.org/abs/2605.19341
 
-The benchmark can be found here: https://github.com/DegenAI-Labs/HalluWorld-benchmark
+**The benchmark will be uploaded soon!** Please track this repo and keep your eye out :)
