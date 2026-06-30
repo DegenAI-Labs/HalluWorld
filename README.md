@@ -12,4 +12,5 @@ Repository for the paper "A Unified Definition of Hallucination: It's The World 
 More info here: https://degenai-labs.github.io/research/hallu-world/
 
 Associated HalluWorld benchmark paper is here: https://arxiv.org/abs/2605.19341
-The HalluWorld benchmark is here: https://github.com/DegenAI-Labs/HalluWorld-benchmark
+
+The benchmark can be found here: https://github.com/DegenAI-Labs/HalluWorld-benchmark
