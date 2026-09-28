@@ -1,0 +1,29 @@
+{
+  "level_name": "windy_room",
+  "static_probe_location": [
+    8,
+    12
+  ],
+  "innav_start_position": null,
+  "navigation_target_locations": [
+    [
+      8,
+      12
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      6
+    ]
+  ],
+  "navigation_params": {
+    "max_steps": 100,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "Windy room - wind effects on navigation. Dynamics level with environmental effects. Use Symbolic or Grid serializer."
+}

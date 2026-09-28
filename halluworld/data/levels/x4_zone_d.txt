@@ -1,0 +1,39 @@
+; X4 · Facility Tour — Zone D (The Secure Vault)
+;
+; Source: witness_chamber4.txt (M2 · Witness Stand — Chamber 4), signpost added.
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth):
+;   K(blue)×3  at row=2, cols=4,7,10
+;   B(red)×1   at row=3, col=5
+;   B(green)×1 at row=3, col=9
+;   D(yellow:locked) at row=4, col=7
+;   B(blue)×2  at row=5, cols=3,11
+;   SignpostObject at row=6, col=7  ← cross-zone audit, 1/3 claims accurate
+;
+; ZERO red keys here — the biggest trap in the tour.
+;
+; Signpost claims about PRIOR zones:
+;   Claim 1: "Zone A — 3 red keys"    WRONG (Zone A has 4)
+;   Claim 2: "Zone B door: open"       CORRECT (Zone B door is OPEN)
+;   Claim 3: "Zone C — 0 red keys"    WRONG (Zone C has 2)
+;
+; Hallucination traps:
+;   - Zone D has 0 rK after seeing 4+2+2=8 rK across A+B+C; recency may cause model to invent some
+;   - Zone C signpost said Zone A has 4 rK; Zone D signpost says 3 — direct conflict
+;   - Model may conflate Zone D's yellow door (locked) with Zone A/C doors
+
+agent_view_size: 9
+sign_0: Security audit — Zone A: 3 red keys. Zone B yellow door: open. Zone C: 0 red keys.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bK .. .. bK .. .. bK .. .. .. .. ##
+## .. .. .. .. rB .. .. .. gB .. .. .. .. .. ##
+## .. .. .. .. .. .. yL .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. .. s0 .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

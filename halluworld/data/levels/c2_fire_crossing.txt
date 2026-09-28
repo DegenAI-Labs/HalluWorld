@@ -1,0 +1,60 @@
+; C2 Fire Crossing
+;
+; Grid: 20 cols x 14 rows (col 0 and col 19 are walls, row 13 is south wall).
+; Agent at (col=7, row=11) facing north.
+;
+; Layout:
+;   rows 0-2:   North bank  (goal, yellow key distractor, signpost)
+;   row  3:     FireTile barrier (cols 1-18, impassable while active)
+;   rows 4-6:   River zone  (flows east, speed=1)
+;   rows 7-12:  South bank  (agent area)
+;
+; Objects:
+;   GOAL             at (col=7,  row=1)
+;   K(yellow)        at (col=3,  row=2)  -- north bank distractor
+;   Signpost         at (col=10, row=0)  -- "The river can help you."
+;   B(blue) WET(4)   at (col=3,  row=5)  -- in river; wet_turns=4  (the tool)
+;   B(red)  dry      at (col=9,  row=8)  -- on dry ground; wet_turns=0 (foil)
+;   TT               at (col=4,  row=8), (col=11, row=8)
+;   D(grey:locked)   at (col=7,  row=9)  -- red herring, no grey key exists
+;   K(red)           at (col=5,  row=10) -- foil, does nothing useful
+;
+; Causal chain (single rule):
+;   pick up B(blue) [wet] → use on fire row → cross → reach GOAL
+;
+; Key physics:
+;   wet_turns=4 means the blue ball dries in 4 steps after leaving the river.
+;   The fire row is 6 rows north of the blue ball:
+;     walk to ball (2 steps north), pick up (1 action = 1 step),
+;     walk to fire (3 more steps) = 5 steps → ball dries after 4 → arrives dry!
+;     Agent must re-wet OR move faster (pick up ball first, then approach fire,
+;     counting carefully: ≤4 steps from pickup to fire use).
+;
+; Hallucination traps:
+;   - Red ball used on fire (ignores dry condition)
+;   - Goal reported as reachable without addressing fire
+;   - Ball reported as wet after 5 steps (off-by-one on wet_turns arithmetic)
+;   - Signpost misread as "cross the river to go around fire"
+
+agent_view_size: 7
+river_rows: 4-6
+river_cols: 1-18
+river_dir: east
+river_speed: 1
+sign_0: The river can help you.
+prewet_0: row=5,col=3,turns=4
+
+## .. .. .. .. .. .. .. .. .. s0 .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. yK .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ##
+## ~E ~E bB ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ##
+## ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ~E ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. TT .. .. .. .. rB .. TT .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. rK .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

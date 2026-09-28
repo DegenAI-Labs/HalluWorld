@@ -1,0 +1,42 @@
+agent_view_size: 7
+;; P4 · Delta Perception
+;; Agent at (row=12, col=7) facing north, view_size=7 (FOV depth = 6 steps)
+;;
+;; t=0 FOV (agent row=12): rows 6–12, cols 4–10
+;;   K(red)   at (row=8,  col=5):  4 ahead, 2 left
+;;   B(blue)  at (row=10, col=6):  2 ahead, 1 left   ← EXITS FOV after 3N steps
+;;   B(red)   at (row=6,  col=8):  6 ahead, 1 right  ← stays visible both obs
+;;   D(yel)   at (row=7,  col=10): 5 ahead, 3 right
+;;   K(blue)  at (row=4,  col=9):  NOT visible (8 ahead > FOV depth)
+;;
+;; t=3 FOV (agent row=9): rows 3–9, cols 4–10
+;;   K(red)   at (row=8,  col=5):  1 ahead, 2 left   ← got closer (was 4)
+;;   B(red)   at (row=6,  col=8):  3 ahead, 1 right  ← got closer (was 6)
+;;   K(blue)  at (row=4,  col=9):  5 ahead, 2 right  ← ENTERS FOV
+;;   D(yel)   at (row=7,  col=10): 2 ahead, 3 right  ← got closer (was 5)
+;;   B(blue)  at (row=10, col=6):  GONE (1 step BEHIND, 1 left)
+;;
+;; Counterfactual anchors (from row=12 starting position):
+;;   5 steps north → agent row=7:
+;;     K(red)  at row=8 → BEHIND (1 step south of agent)  → not visible
+;;     K(blue) at row=4 → 3 ahead, 2 right                → visible
+;;   0 steps (stayed):
+;;     K(blue) at row=4 → 8 ahead > FOV depth             → not visible
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. bK .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. rB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. yD .. .. .. .. ##
+## .. .. .. .. rK .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. bB .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

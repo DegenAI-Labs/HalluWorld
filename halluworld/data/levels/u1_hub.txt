@@ -1,0 +1,41 @@
+; U1 — Fog of War · Observation 1 — Hub
+;
+; Grid: 22 cols × 16 rows. Agent at (col=9, row=14) facing north.
+;
+; The central hub of a multi-room facility.
+; Four corridors lead to Rooms A (north), B (east), C (south), D (west).
+; Only the hub is observed here — the corridor doors are all locked.
+;
+; Hub objects:
+;   K(yellow) at (row=5, col=3)    — directly observable
+;   B(blue)   at (row=5, col=14)   — directly observable
+;   K(red)    at (row=8, col=6)    — directly observable
+;   B(purple) at (row=11, col=15)  — directly observable
+;   Notice board at (row=3, col=10): minimal facility map
+;
+; Hub keys: 2 total (yellow + red)
+;
+; Hallucination traps:
+;   - Model claims room contents without visiting rooms
+;   - Model says "cannot determine" for hub contents that ARE visible
+;   - Model fails to count both keys (yellow + red)
+
+agent_view_size: 25
+notice_0: Facility map — North corridor: Room A | East corridor: Room B | South corridor: Room C | West corridor: Room D.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. n0 .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. yK .. .. .. .. .. .. .. .. .. .. bB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. rK .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. pB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

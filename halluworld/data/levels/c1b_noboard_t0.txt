@@ -1,0 +1,29 @@
+; C1b Continuous Chain — NO BOARD — OBSERVATION 1 (previous step)
+;
+; Identical to c1b_continuous_chain_t0.txt except the notice board is absent.
+; Paired with c1b_noboard.txt as Observation 2.
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=open
+door_id_0: row=8,col=8,id=workshop_gate
+continuous_door_0: row=3,col=8,key=gold
+continuous_door_1: row=2,col=8,key=master
+plate_1: target=demo_gate_a,effect=open
+door_id_1: row=6,col=12,id=demo_gate_a
+plate_2: target=demo_gate_b,effect=open
+door_id_2: row=6,col=14,id=demo_gate_b
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. eD rB eD .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. b1 .. p2 .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

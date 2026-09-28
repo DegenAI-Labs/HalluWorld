@@ -1,0 +1,35 @@
+; X3 · Facility Tour (7-zone) — Zone G (The Director's Suite)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   NoticeBoardObject  at row=1, col=13  (TRUE summary + discrepancy flags)
+;   K(red)×1           at row=2, col=1
+;   K(blue)×1          at row=4, col=6
+;   K(green)×1         at row=6, col=10
+;
+; Notice board: final audit confirming both Zone A and Zone B true inventories,
+;   explicitly flagging Records Office (Zone C) and Security Post (Zone D) as inaccurate.
+;
+; Hallucination traps:
+;   - Final observation before probes — maximum recency pressure
+;   - Notice explicitly names which sources were false → tests if model correctly updates
+;   - One of each key type → model must not confuse with Zone A/B key counts
+;   - Red key here contributes to total (Zone G = 1 rK, not zero)
+
+agent_view_size: 15
+notice_0: Director's audit summary. ZONE A FINAL: 4 red keys, 3 blue balls, 2 green keys, 1 red ball, yellow door LOCKED. ZONE B FINAL: 3 blue keys, 2 green balls, 1 red ball, grey door LOCKED. DISCREPANCIES FLAGGED: Records Office (Zone C) logged 6 red keys for Zone A — INCORRECT. Security Post (Zone D) logged 5 red keys and OPEN door for Zone A — INCORRECT. Security Post (Zone D) also logged 4 blue keys and OPEN door for Zone B — INCORRECT.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. n0 .. ##
+## rK .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. bK .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. gK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

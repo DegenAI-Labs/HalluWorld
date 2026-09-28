@@ -1,0 +1,13 @@
+;; open_room.txt — single open room (8×8) with several objects
+;; No locked door. Objects scattered around the room.
+agent_view_size: 7
+see_through_walls: false
+
+## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. ##
+## .. A. .. .. bB .. ##
+## .. .. .. .. .. .. ##
+## .. rK .. gB .. .. ##
+## .. .. .. .. yX .. ##
+## .. .. .. ** .. .. ##
+## ## ## ## ## ## ## ##

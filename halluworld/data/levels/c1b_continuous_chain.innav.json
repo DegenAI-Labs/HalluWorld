@@ -1,0 +1,8 @@
+{
+  "level_name": "c1b_continuous_chain",
+  "static_probe_location": [8, 12],
+  "innav_start_position": null,
+  "navigation_target_locations": [[8, 12], [8, 9], [8, 6]],
+  "navigation_params": {"max_steps": 30, "min_steps": 10, "sufficiency_distance": 3.0, "min_distance_from_start": 5.0},
+  "notes": "C1b Continuous Chain - causal level with boulder mechanics. ⚠️ Boulder bug - navigation may fail. Use MemorySerializer (canonical for C-tier)."
+}

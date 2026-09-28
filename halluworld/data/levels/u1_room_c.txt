@@ -1,0 +1,34 @@
+; U1 — Fog of War · Observation 3 — Room C (south)
+;
+; Grid: 18 cols × 12 rows. Agent at (col=7, row=1) facing south.
+; Agent entered through the north entrance after walking south from the Hub.
+;
+; Room C objects (equipment bay):
+;   K(green) × 2  at (row=3, cols=3,9)
+;   B(yellow)     at (row=5, col=6)
+;   K(blue)       at (row=6, col=14)
+;   D(yellow:open) at (row=9, col=6)
+;   Notice board  at (row=2, col=14)
+;
+; Room C keys: 3 total (2 green + 1 blue)
+;
+; Hallucination traps:
+;   - Model reports room B/D contents based on Room C diversity
+;   - Model forgets yellow door state (open, not closed)
+;   - Model miscounts green keys (2, not 3)
+
+agent_view_size: 21
+notice_0: Room C — Equipment bay. Maintenance required.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. Av .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. n0 .. .. ##
+## .. .. gK .. .. .. .. .. gK .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. yB .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. bK .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. yO .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

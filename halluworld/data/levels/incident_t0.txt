@@ -1,0 +1,37 @@
+; M3 · Incident Report — Observation 1 (Step 0)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=9 → sees rows 1–9, cols 3–11. All 14 objects are within FOV.
+;
+; STABLE objects (11, unchanged in t=6):
+;   K(red)×2       row=1 cols=3,11
+;   K(blue)×1      row=1 col=7
+;   B(blue)×1      row=2 col=9              ← TRAP: still here in obs2 (blue balls not gone)
+;   B(green)×2     row=3 cols=3,11
+;   K(yellow)×1    row=4 col=7
+;   D(yellow:open)  row=5 col=4             ← TRAP: stable; model may say yellow changed
+;   K(grey)×1      row=7 col=3
+;   B(purple)×1    row=7 col=7
+;   B(red)×1       row=8 col=7             ← TRAP: stable; may be confused with new rB in obs2
+;
+; CHANGED objects (3, modified in t=6):
+;   B(blue)        row=3 col=6  → B(red) in t=6       [CHANGE 1: color swap]
+;   D(purple:open)  row=5 col=10 → D(purple:closed)    [CHANGE 2: state change]
+;   K(green)       row=7 col=11 → removed              [CHANGE 3: removal — hardest]
+;
+; Total objects: 14
+
+agent_view_size: 11
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. .. .. bK .. .. .. rK .. .. .. ##
+## .. .. .. .. .. .. .. .. bB .. .. .. .. .. ##
+## .. .. gB .. .. bB .. .. .. .. gB .. .. .. ##
+## .. .. .. .. .. .. yK .. .. .. .. .. .. .. ##
+## .. .. .. yO .. .. .. .. .. pO .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. eK .. .. .. pB .. .. .. gK .. .. .. ##
+## .. .. .. .. .. .. rB .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

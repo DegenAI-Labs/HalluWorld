@@ -1,0 +1,15 @@
+view_size: 7
+sign_0: ARMORY RECORDS — WEAPON SPECIFICATIONS: Enchanted sword (green key): base damage 1 + enchantment bonus 4 = 5 damage per hit. Dragon-scale shield (blue ball): negates dragon fire breath entirely (0 damage received). Dragon Malachar confirmed HP: 10. Minimum hits to slay: 10 / 5 = 2. Both items required for safe passage.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. s0 .. .. .. .. .. ##
+## .. .. .. .. gK .. .. .. bB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

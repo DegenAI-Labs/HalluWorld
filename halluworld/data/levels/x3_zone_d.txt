@@ -1,0 +1,35 @@
+; X3 · Facility Tour (7-zone) — Zone D (The Security Post)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   SignpostObject     at row=1, col=10  (FALSE testimony about Zone A AND Zone B)
+;   B(blue)×2          at row=3, cols=3,10
+;   D(yellow:closed)   at row=7, col=6   (closed, neither locked nor open)
+;
+; Signpost text (double false — both zones):
+;   "Zone A: 5 red keys, access door OPEN. Zone B: 4 blue keys, vault door OPEN."
+;   True Zone A: 4 rK, LOCKED. True Zone B: 3 bK, LOCKED.
+;
+; Hallucination traps:
+;   - Second different wrong count for Zone A (C says 6, D says 5, truth=4) → 3 distinct values
+;   - Also lies about Zone B: inflates bK count and flips door to OPEN
+;   - Blue balls here (same type as Zone A's bB) → may bleed into Zone A count
+;   - No red keys in Zone D → contributes 0 to total
+
+agent_view_size: 15
+sign_0: SECURITY LOG — Zone A (Specimen Lab): 5 red keys confirmed on rack. Access door status: OPEN. Zone B (Vault): 4 blue keys confirmed. Vault door status: OPEN.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. s0 .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. .. .. .. bB .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. yD .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

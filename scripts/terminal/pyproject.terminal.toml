@@ -1,0 +1,118 @@
+[project]
+name = "auto-terminal-bench"
+version = "0.1.0"
+description = "Hallucination benchmark for LLM agents in terminal environments (HalluWorld Terminal leg)"
+readme = "README.md"
+authors = [
+    { name = "Zhuofu Tao", email = "zhuofutao@gmail.com" },
+    { name = "Michael Yu", email = "woolythesheep@gmail.com" },
+    { name = "Varun Gangal", email = "varun.gangal@patronus.ai" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    # LLM API clients - Matching Michael's pipfreeze.txt
+    "openai==2.24.0",
+    "anthropic==0.96.0",
+
+    # Core dependencies - Matching Michael's environment
+    "docker==7.1.0",
+    "tqdm==4.67.3",
+    "tenacity==9.1.4",
+
+    # For probe evaluation and analysis
+    "pandas==3.0.2",
+    "numpy==2.4.4",
+    "tabulate==0.10.0",
+
+    # For judge LLM calls
+    "litellm==1.83.10",
+
+    # Terminal-bench dependencies
+    "asciinema==2.4.0",
+    "boto3==1.42.92",
+    "pyyaml==6.0.3",
+    "ruamel.yaml==0.19.1",
+    "mcp==1.27.0",
+    "pydantic==2.12.5",
+    "pydantic-settings==2.14.0",
+    "inquirer==3.4.1",
+    "typer==0.23.1",
+    "jinja2==3.1.6",
+
+    # Database (for terminal-bench leaderboard features)
+    "psycopg2-binary==2.9.12",
+    "sqlalchemy==2.0.49",
+    "supabase==2.28.3",
+
+    # Streamlit (for terminal-bench dashboard)
+    "streamlit==1.56.0",
+]
+
+[project.optional-dependencies]
+# For Baseten open source models (GLM-5, Qwen, GPT-OSS-120B)
+baseten = [
+    "openai>=1.59.9",  # Baseten uses OpenAI-compatible API
+]
+
+# For development and analysis
+dev = [
+    "ipykernel>=6.29.5",
+    "ipython>=8.20.0",
+    "jupyter>=1.0.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "scipy>=1.11.0",
+    "numpy>=1.26.0",
+]
+
+# For testing
+test = [
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+]
+
+# Everything together
+all = [
+    "auto-terminal-bench[baseten,dev,test]",
+]
+
+# No build system needed - this is just a dependency specification
+
+[tool.uv]
+dev-dependencies = [
+    "ipykernel>=6.29.5",
+    "ipython>=8.20.0",
+    "jupyter>=1.0.0",
+    "pytest>=8.3.4",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+
+# Project-specific configurations
+[tool.auto-terminal-bench]
+# Default models for evaluation (can override via CLI)
+default_models = [
+    "gpt-4o-mini",
+    "gpt-4o",
+    "gpt-5.4",
+    "o3-mini",
+    "claude-sonnet-4-6",
+]
+
+# Default number of seeds per evaluation
+default_seeds = 3
+
+# Default output directory
+default_output_dir = "external/terminal-bench/runs"

@@ -1,0 +1,31 @@
+; C1a Persistent Chain — NO NOTICE BOARD variant
+;
+; Identical to c1a_persistent_chain.txt except the notice board (n0) is removed.
+; The model must infer the plate effect from the serializer annotation alone
+; (effect=trigger in the pressure plate note) rather than an explicit rule statement.
+;
+; Hallucination trap: without the notice board saying "Plates trigger gates once",
+; models that default to a continuous prior will answer that the gate closes when
+; the boulder is removed (wrong — trigger = one-shot permanent).
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=trigger
+door_id_0: row=8,col=8,id=workshop_gate
+plate_1: target=demo_gate,effect=trigger
+door_id_1: row=6,col=14,id=demo_gate
+plate_1_pretriggered: true
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. .. rB eD .. .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. BO .. p1 .. .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,12 @@
+{
+  "level_name": "x4_zone_a",
+  "static_probe_location": [8, 7],
+  "navigation_target_locations": [[8, 7], [5, 7], [2, 7]],
+  "navigation_params": {
+    "max_steps": 100,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 3.0
+  },
+  "notes": "X4 Facility Tour (Compound Witness) - Witness Stand sequence embedded mid-tour. Use Grid or Symbolic serializer."
+}

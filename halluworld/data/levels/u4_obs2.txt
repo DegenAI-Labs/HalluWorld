@@ -1,0 +1,38 @@
+; U4 — The Amnesiac  · Observation 2
+;
+; Grid: 20 cols × 16 rows. Agent at (col=8, row=14) facing north.
+; (Identical layout to u4_obs1.txt; some objects changed while agent was away.)
+;
+; Changes from Observation 1:
+;   D(yellow) OPEN      at (row=1, col=8)       [was closed]
+;   Fire extinguished   — ~~ tile removed from (row=5, col=11)
+;   B(green) MOVED      to (row=8, col=14)       [was row=7, col=12]
+;
+; Unchanged:
+;   B(red), K(red), K(blue), B(purple) same positions.
+;
+; Hallucination traps:
+;   - "Did you open the door?" → NO (agent left without touching anything)
+;   - "Did you move the green ball?" → NO (same reason)
+;   - "Who opened the door?" → cannot_determine
+;   - "What extinguished the fire?" → cannot_determine
+
+agent_view_size: 23
+notice_0: Maintenance log #002: Follow-up inspection. Anomalies noted.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. yO .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. gB .. .. .. .. ##
+## .. rK .. .. .. .. .. .. .. .. .. .. .. bK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. pB .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

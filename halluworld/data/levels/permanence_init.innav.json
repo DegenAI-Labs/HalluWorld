@@ -1,0 +1,29 @@
+{
+  "level_name": "permanence_init",
+  "static_probe_location": [
+    8,
+    12
+  ],
+  "innav_start_position": null,
+  "navigation_target_locations": [
+    [
+      8,
+      12
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      6
+    ]
+  ],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "P5 Object Permanence (t=0) - perception level testing object permanence. Paired with permanence_moved (t=3). Use Symbolic or Grid serializer."
+}

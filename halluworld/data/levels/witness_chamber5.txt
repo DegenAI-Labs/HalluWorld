@@ -1,0 +1,32 @@
+; M2 · Witness Stand — Chamber 5 (current)
+;
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects:
+;   K(red)×2   at row=2, cols=5,9
+;   B(blue)×1  at row=3, col=7
+;   B(red)×1   at row=4, col=4
+;   D(yellow:open) at row=4, col=10
+;   K(green)×1 at row=5, col=6
+;
+; Total: 6 objects
+;
+; Hallucination targets:
+;   - Red keys REAPPEAR (was 4→2→1→0→2); model may say they disappeared for good
+;   - Door open again (same state as Ch2); model may say it was always open
+;   - Blue keys GONE (peaked in Ch4); model may carry forward from Ch4
+;   - Fewest objects (6 vs 8–9 in earlier chambers); model may not update count
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. rK .. .. .. rK .. .. .. .. .. ##
+## .. .. .. .. .. .. bB .. .. .. .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. yO .. .. .. .. ##
+## .. .. .. .. .. gK .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

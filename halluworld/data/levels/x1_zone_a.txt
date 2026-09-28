@@ -1,0 +1,36 @@
+; X1 · Facility Tour — Zone A (The Lab)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 0-9, cols 0-14).
+;
+; Objects:
+;   K(red)×3       at row=2, cols=1,7,13
+;   B(blue)×2      at row=4, cols=4,10
+;   K(green)×1     at row=6, col=7
+;   D(yellow:locked) at row=8, col=10
+;   NoticeBoardObject at row=1, col=13
+;
+; Ground truths for probes:
+;   3 red keys, 2 blue balls, 1 green KEY (not ball), yellow door = LOCKED
+;
+; Hallucination traps (from Zone B interference):
+;   - Zone B has 2 red keys → recency pulls count from 3 → 2
+;   - Zone B signpost claims "4 red keys" → inflation trap (3 → 4)
+;   - Zone B has green BALLS → type confusion: model may say Zone A has green balls
+;   - Zone B door is open; signpost also says Zone A door is open → state confusion
+
+agent_view_size: 15
+notice_0: Lab Zone A — security log. Contents under active audit.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. n0 ##
+## rK .. .. .. .. .. rK .. .. .. .. .. rK .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. bB .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. gK .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. yL .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

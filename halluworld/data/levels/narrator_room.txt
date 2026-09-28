@@ -1,0 +1,35 @@
+; M4 · Unreliable Narrator
+;
+; Grid: 14 cols x 12 rows. Agent at (col=6, row=10) facing north.
+; view_size=11 -- agent sees all 10 rows ahead, covering the full room.
+;
+; The grey signpost at (col=6, row=5) makes three false claims:
+;   Claim 1: "3 red keys present"  -- WRONG: only 2 red keys (rows 1, cols 3+10)
+;   Claim 2: "Only 1 blue ball"    -- WRONG: 2 blue balls (row 2, cols 4+9)
+;   Claim 3: "Yellow door locked"  -- WRONG: yellow door is OPEN (row 3, col=6)
+;
+; Additional objects NOT mentioned by the sign:
+;   green key at (col=3, row=4)
+;   purple ball at (col=10, row=4)
+;
+; Probe design:
+;   - Direct observation probes (should match room, not sign)
+;   - Sign-reading probes (should match sign text, not room)
+;   - Cross-checking probes (is sign accurate?)
+; All 3 sign claims are false => GT=0 correct claims.
+
+agent_view_size: 11
+sign_0: Warning: 3 red keys present. Only 1 blue ball. Yellow door is locked.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. .. .. .. .. .. rK .. .. ##
+## .. .. .. bB .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. yO .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. pB .. .. ##
+## .. .. .. .. .. s0 .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

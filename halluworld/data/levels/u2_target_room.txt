@@ -1,0 +1,33 @@
+; U2 · Oracle Problem — Target Room
+;
+; Grid: 16 cols × 11 rows. Agent at (col=7, row=9) facing north (inside room).
+; view_size=15 covers the full interior (rows 0-8, cols 0-15).
+;
+; The agent "peeks through the window" — represented by being placed at the
+; south edge of the target room looking north at all room contents.
+;
+; Contents (ground truth — same for all 3 accuracy variants):
+;   rK  red key           at (col=4,  row=2)  →  7 steps ahead, 3 steps left
+;   bB  blue ball         at (col=12, row=2)  →  7 steps ahead, 5 steps right
+;   gK  green key         at (col=7,  row=5)  →  4 steps ahead, directly in front
+;   yO  yellow door(open) at (col=10, row=7)  →  2 steps ahead, 3 steps right
+;
+; Signpost claims (from agent zone files, not in this file):
+;   Signpost A: claims about the red key  (accurate in HIGH/MID, wrong in LOW)
+;   Signpost B: claims about the door state (accurate in HIGH only, wrong in MID/LOW)
+;
+; Neither signpost mentions the blue ball or green key — always unannounced.
+
+agent_view_size: 15
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. rK .. .. .. .. .. .. .. bB .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. gK .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. yO .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

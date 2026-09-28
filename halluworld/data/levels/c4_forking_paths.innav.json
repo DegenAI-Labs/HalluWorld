@@ -1,0 +1,13 @@
+{
+  "level_name": "c4_forking_paths",
+  "static_probe_location": [8, 12],
+  "innav_start_position": null,
+  "navigation_target_locations": [[8, 12], [8, 9], [8, 6]],
+  "navigation_params": {
+    "max_steps": 30,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "C4 Forking Paths - causal level with path choices. ⚠️ Boulder bug - navigation may fail. Use MemorySerializer (canonical for C-tier)."
+}

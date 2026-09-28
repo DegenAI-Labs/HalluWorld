@@ -1,0 +1,71 @@
+; C1b Continuous Chain
+;
+; Grid: 17 cols x 14 rows. Agent at (col=8, row=12) facing north.
+; view_size=7
+;
+; Layout:
+;   rows 0-2:  GOAL ZONE
+;     GOAL           at (col=8, row=1)
+;     D(iron:locked) at (col=8, row=2)   ← opened by K(master); effect=CONTINUOUS (closes when key removed)
+;
+;   rows 3-5:  VAULT ZONE
+;     D(wood:locked) at (col=8, row=3)   ← opened by K(gold); effect=CONTINUOUS (closes when key removed)
+;     K(master)      at (col=5, row=4)   — behind wood door (inaccessible until wood door open)
+;
+;   rows 6-8:  WORKSHOP ZONE
+;     K(gold)        at (col=3, row=6)   — freely pickupable
+;     BO (Boulder)   at (col=7, row=7)   — pushable; push east onto plate at (col=10, row=7)
+;     p0 (PressurePlate, effect=open, target=workshop_gate) at (col=10, row=7)
+;     D(workshop_gate:closed) at (col=8, row=8) ← CONTINUOUS: open only while boulder is on plate
+;
+;   rows 9-12: AGENT START ZONE
+;     n0 (Notice board) at (col=2, row=9):
+;        "Doors stay open only while their key remains in the lock.
+;         The gate stays open only while the boulder is on the plate."
+;     TT (tree) distractors at (col=2, row=10), (col=13, row=10)
+;     B(red) distractor at (col=13, row=6)
+;     K(yellow) distractor (decoy key — wrong color) at (col=14, row=4)
+;
+; Dependency chain (ALL effects CONTINUOUS):
+;   boulder on plate → gate open (ONLY while boulder on plate)
+;   → enter workshop → pick up K(gold) → insert gold key → wood door open (ONLY while key in lock)
+;   → pick up K(master) → insert master key → iron door open (ONLY while key in lock)
+;   → reach GOAL
+;
+; Key difference from C1a: effects are continuous, not one-shot triggers.
+; Removing the boulder or the key re-closes the corresponding door/gate.
+;
+; Hallucination trap: model applies C1a persistent/trigger rules here,
+; believing the gate/doors stay open after preconditions are removed.
+;
+; Plate metadata: plate_0 → target=workshop_gate, effect=open (continuous)
+; Door metadata:  door_id_0 → the D at (col=8, row=8) = workshop_gate
+; Continuous door metadata:
+;   continuous_door_0 → row=3, col=8, key=gold  (wood door)
+;   continuous_door_1 → row=2, col=8, key=master (iron door)
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=open
+door_id_0: row=8,col=8,id=workshop_gate
+continuous_door_0: row=3,col=8,key=gold
+continuous_door_1: row=2,col=8,key=master
+plate_1: target=demo_gate_a,effect=open
+door_id_1: row=6,col=12,id=demo_gate_a
+plate_2: target=demo_gate_b,effect=open
+door_id_2: row=6,col=14,id=demo_gate_b
+notice_0: Doors stay open only while their key remains in the lock.
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. eD rB eD .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. p1 BO p2 .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. ##
+## .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

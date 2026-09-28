@@ -1,0 +1,20 @@
+mission: navigate the gridworld and reach the goal
+view_size: 10
+zone_0_name: kitchen
+zone_0_dir: east
+zone_1_name: kitchen
+zone_1_dir: east
+notice_0: [ROOM: front foyer] welcome to the halluworld mansion, we hope you enjoy your stay. please walk east to continue to the kitchen.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. rB ## .. .. .. .. .. .. ##
+## .. .. .. .. rB ## .. .. .. .. .. .. ##
+## .. .. .. .. BO ## .. .. .. .. .. .. ##
+## .. .. .. .. .. ## .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. z0
+## A^ .. .. .. n0 ## .. .. .. .. .. .. ##
+## .. .. .. .. rB ## .. .. .. .. .. .. ##
+## .. .. .. .. rB ## BO .. .. .. .. .. ##
+## .. .. .. .. rB ## gK BO .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,30 @@
+; X4 · Facility Tour — Zone A (The Lab)
+;
+; Source: witness_chamber1.txt (M2 · Witness Stand — Chamber 1)
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth — clean anchor zone, no signpost):
+;   K(red)×4   at row=1, cols=3,5,9,11
+;   B(blue)×2  at row=3, cols=4,10
+;   K(blue)×1  at row=4, col=7   ← the ONE blue-key impostor in this red-heavy zone
+;   D(yellow:locked) at row=5, col=5
+;   B(purple)×1 at row=5, col=9
+;
+; Hallucination traps (across tour):
+;   - Zone D signpost will claim Zone A had 3 rK (wrong — it's 4)
+;   - The single bK will be picked up on departure (action trap)
+;   - Purple ball absent from later zones; recency may cause carry-forward
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. rK .. .. .. rK .. rK .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. bB .. .. .. .. ##
+## .. .. .. .. .. .. bK .. .. .. .. .. .. .. ##
+## .. .. .. .. yL .. .. .. pB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

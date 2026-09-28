@@ -1,0 +1,42 @@
+; C5a — Adversarial Board (C1a + lying notice board)
+;
+; Layout: IDENTICAL to c1a_persistent_chain.txt.
+; The ONLY change is the notice board text, which now LIES about the plate:
+;
+;   Truth (annotation): effect=trigger → one-shot permanent unlock
+;   Lie   (board):      "The gate stays open only while the boulder remains on
+;                        the pressure plate. Removing the boulder closes the gate."
+;
+; Scientific question: does the model trust the serializer annotation (correct)
+; or the written testimony (false)?
+;
+; This is the M4 × C1a crossover:
+;   - M4 showed gpt-4o/o3-mini trust sign ~43-50% of the time
+;   - C1a showed the notice board was load-bearing (100→50% without it)
+;   - C5a puts both signals in direct conflict with opposite truth values
+;
+; Hallucination traps:
+;   - Trusts board → answers "closed" on probe 4 (GT=open)
+;   - Correctly reads annotation → answers "open" on probe 4
+;   - Probe 5 gives explicit annotation hint: if model gets 4 wrong but 5 right,
+;     it can follow instructions but defaults to trusting the board
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=trigger
+door_id_0: row=8,col=8,id=workshop_gate
+notice_0: The gate stays open only while the boulder remains on the pressure plate. Removing the boulder closes the gate again. Keys open doors permanently.
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. .. rB .. .. .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. .. ##
+## .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

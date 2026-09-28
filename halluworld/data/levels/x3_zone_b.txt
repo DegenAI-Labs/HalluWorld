@@ -1,0 +1,36 @@
+; X3 · Facility Tour (7-zone) — Zone B (The Vault)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   K(blue)×3          at row=2, cols=2,7,12
+;   B(green)×2         at row=4, cols=4,10
+;   B(red)×1           at row=6, col=7
+;   D(grey:locked)     at row=8, col=5
+;
+; No signpost or notice board — pure direct observation required.
+;
+; Ground truths:
+;   3 blue keys, 2 green balls, 1 red ball, grey door LOCKED
+;
+; Hallucination traps:
+;   - Zone D claims Zone B has 4 blue keys (false: 3) and door OPEN (false: locked)
+;   - Zone F notice confirms 3 bK + locked; Zone G also confirms
+;   - Green balls here vs green KEYS in Zone A → type+zone confusion
+;   - No red keys in Zone B → contributes 0 to total rK count
+
+agent_view_size: 15
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. bK .. .. .. .. bK .. .. .. .. bK .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. gB .. .. .. .. .. gB .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. rB .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. eL .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

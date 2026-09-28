@@ -1,0 +1,35 @@
+; X1 · Facility Tour — Zone B (The Records Room)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells.
+;
+; Objects:
+;   SignpostObject     at row=1, col=2  (claims about Zone A — BOTH CLAIMS FALSE)
+;   K(red)×2           at row=2, cols=4,10   (less than Zone A's 3 — recency trap)
+;   B(green)×2         at row=4, cols=3,9    (green BALLS not keys — type confusion)
+;   D(yellow:open)     at row=6, col=8       (open, not locked — opposite of Zone A)
+;
+; Signpost text: "4 red keys in lab storage. Yellow access door: OPEN."
+;   → Both claims are FALSE (Zone A has 3 red keys, locked door)
+;
+; Hallucination traps:
+;   - Signpost inflates red key count: 3 → 4
+;   - Signpost flips door state: locked → open
+;   - Green BALLS here vs green KEY in Zone A → type confusion trap
+;   - 2 red keys (recency) may overwrite Zone A's 3 red keys in memory
+
+agent_view_size: 15
+sign_0: INTELLIGENCE REPORT — Lab Zone A inventory: 4 red keys in secure storage. Yellow access door status: OPEN.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. s0 .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. rK .. .. .. .. .. rK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gB .. .. .. .. .. gB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. yO .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,74 @@
+# Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv*/
+venv/
+ENV/
+env/
+py_halluworld/
+py_halluworld_benchmark/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test results and outputs
+results/
+my_results/
+*results*.jsonl
+quick_start_results.jsonl
+
+# Logs
+*.log
+
+# Temporary PR/commit files
+PR_MESSAGE.md
+COMMIT_MESSAGE.txt
+
+# Generated run data. Kept on disk, never committed -- publishing venue TBD.
+/results/
+/results_*.csv
+/egocentric_probe_files/
+/navigation_traces/
+/logs_*.txt
+
+# The question bank is never in this repository. v0.1 is distributed as a gated
+# Hugging Face dataset (docs/QUESTIONS.md) and later versions are held out, so
+# every bank version and every raw probe-generation input stays local.
+/halluworld/data/questions/
+/halluworld/data/probe_banks/
+/build/v02/
+# v0.2 generation configs carry the held-out seeds. They live in the gated
+# DegenAI-Labs/HalluWorld dataset; see docs/QUESTIONS.md.
+/configs/v0.2/

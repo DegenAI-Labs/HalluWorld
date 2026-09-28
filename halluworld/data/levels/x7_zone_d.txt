@@ -1,0 +1,16 @@
+view_size: 7
+notice_0: [Antechamber Scroll — partially legible] ...the dark orb weakens the dragon's scales... wielded weapon damage becomes 2 per hit... Malachar's true HP: 8... take the dark orb from its pedestal before entering the Keep... the enchanted sword is powerless against his fire hide...
+plate_0: target=exit_door,effect=open
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. eD .. .. .. .. .. ##
+## .. .. .. .. .. .. n0 .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. pB .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. BO .. p0 .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

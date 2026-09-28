@@ -1,0 +1,32 @@
+; M2 · Witness Stand — Chamber 4
+;
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects:
+;   K(blue)×3  at row=2, cols=4,7,10
+;   B(red)×1   at row=3, col=5
+;   B(green)×1 at row=3, col=9
+;   D(yellow:locked) at row=4, col=7
+;   B(blue)×2  at row=5, cols=3,11
+;
+; Total: 8 objects
+;
+; Hallucination targets:
+;   - ZERO red keys here (was 4→2→1→0); recency may cause model to invent one
+;   - Door locked again (same as Ch1); model may collapse Ch1 and Ch4
+;   - Blue keys peaked last chamber (Ch3); model may carry them here
+;   - Green ball persists from Ch3; source confusion with Ch1 or Ch2
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bK .. .. bK .. .. bK .. .. .. .. ##
+## .. .. .. .. rB .. .. .. gB .. .. .. .. .. ##
+## .. .. .. .. .. .. yL .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

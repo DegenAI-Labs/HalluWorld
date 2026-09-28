@@ -1,0 +1,30 @@
+agent_view_size: 7
+;; P5 · Object Permanence — Observation 2 (agent at row=9, col=6, facing north)
+;; Agent moved 3 steps north from (row=12) to (row=9).
+;; FOV: rows 3–9, cols 3–9
+;;
+;; Visible objects at t=3:
+;;   K(red)          at (row=7,  col=5): 2 ahead, 1 left     ← was 5 ahead (got closer)
+;;   D(yellow:OPEN)  at (row=6,  col=6): 3 ahead, directly   ← STATE CHANGED from closed!
+;;   K(purple)       at (row=3,  col=6): 6 ahead, directly   ← ADDED; was not in Obs 1
+;;
+;; NOT visible (behind agent):
+;;   B(blue) at (row=10, col=7): 1 step BEHIND, 1 right      ← was 2 ahead; still in level
+;;
+;; Hidden changes vs init:
+;;   - D(yellow) state: closed → open
+;;   - K(purple): added to level
+## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. pK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. yO .. .. .. .. ##
+## .. .. .. .. rK .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. ##
+## .. .. .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,12 @@
+{
+  "level_name": "x2_zone_d",
+  "static_probe_location": [8, 7],
+  "navigation_target_locations": [[8, 7], [5, 7], [2, 7]],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 3.0
+  },
+  "notes": "X2 Facility Tour+ (5 zones) - Adds lying signpost about prior zone. Use Grid or Symbolic serializer."
+}

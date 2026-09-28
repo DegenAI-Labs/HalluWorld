@@ -1,0 +1,16 @@
+{
+  "level_name": "x5_zone_a",
+  "static_probe_location": [8, 7],
+  "navigation_target_locations": [
+    [8, 7],
+    [5, 7],
+    [2, 7]
+  ],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 3.0
+  },
+  "notes": "X5 Zone A (Atrium) - Entry point for 7-zone Cascading Testimony tour. Grid: 10×16, agent at (8,7) facing north. Emmy's HalluWorld-Hard world (X5_facility_tour + Grid). Multi-zone compound level where later zones have signposts making claims about earlier zones (some incorrect). Tests cross-zone memory and resistance to cascading misinformation. Use GridSerializer (canonical for X5)."
+}

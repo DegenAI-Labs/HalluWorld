@@ -1,0 +1,32 @@
+{
+  "level_name": "rotation_challenge",
+  "static_probe_location": [
+    6,
+    9
+  ],
+  "innav_start_position": [
+    8,
+    7
+  ],
+  "navigation_target_locations": [
+    [
+      6,
+      9
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      10,
+      5
+    ]
+  ],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "Rotation challenge - moved start to (8,7) for better navigation paths. Static location (6,9) still used."
+}

@@ -1,0 +1,10 @@
+# What goes into a source tarball (`python -m build --sdist`). The wheel is
+# governed by pyproject's package-data tables; this file is the sdist's
+# equivalent. The question bank is a gated Hugging Face dataset and must never
+# ride along in a tarball built from a checkout that has it on disk -- and
+# setuptools will happily pick it up from a stale egg-info/SOURCES.txt.
+prune halluworld/data/questions
+prune halluworld/data/probe_banks
+prune halluworld/data/terminal_tasks
+global-exclude *.py[cod]
+global-exclude __pycache__

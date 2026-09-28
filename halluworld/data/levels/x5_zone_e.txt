@@ -1,0 +1,43 @@
+; X5 · Facility Tour — Zone E (The Containment Bay)
+;
+; Source: witness_chamber4.txt (M2 · Witness Stand — Chamber 4), signpost added.
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth):
+;   K(blue)×3  at row=2, cols=4,7,10   ← ZERO red keys here
+;   B(red)×1   at row=3, col=5
+;   B(green)×1 at row=3, col=9
+;   D(yellow:locked) at row=4, col=7
+;   B(blue)×2  at row=5, cols=3,11
+;   SignpostObject at row=6, col=7  ← cross-zone security log
+;
+; ZERO red keys here — strongest trap in the tour.
+; After Zones A–D (1+4+2+2=9 rK), expectation is strong that rK will continue.
+;
+; Signpost claims about PRIOR zones:
+;   Claim 1: "Zone B: 4 red keys"          CORRECT (Zone B has 4 rK)
+;   Claim 2: "Zone D: 2 red keys"          CORRECT (Zone D has 2 rK)
+;   Claim 3: "Zone D yellow door: LOCKED"  WRONG   (Zone D door is OPEN)
+;
+; Signpost accuracy: 2/3 claims correct.
+;
+; Hallucination traps:
+;   - Strong expectation of rK after 9 rK across prior zones — model may invent one
+;   - Zone E's signpost is 2/3 correct — harder to fully distrust
+;   - Zone D door state: Zone E says locked, but it was open — must prefer own observation
+;   - One bK will be picked up on departure to enter Zone F (action trap)
+
+agent_view_size: 9
+sign_0: Security log — Zone B: 4 red keys. Zone D: 2 red keys. Zone D yellow door: LOCKED.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bK .. .. bK .. .. bK .. .. .. .. ##
+## .. .. .. .. rB .. .. .. gB .. .. .. .. .. ##
+## .. .. .. .. .. .. yL .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. .. s0 .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

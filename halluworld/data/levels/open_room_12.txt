@@ -1,0 +1,18 @@
+;; open_room_12.txt — single open room (12×12) with 7 objects
+;; Larger FOV variant — designed so the agent must navigate to see all objects.
+;; Objects spread across the room; goal in bottom-right interior corner.
+agent_view_size: 9
+see_through_walls: false
+
+## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. A. .. .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. rK .. .. .. .. gB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. yX .. .. .. .. .. ##
+## .. .. .. .. .. .. pB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. gK .. ** ##
+## ## ## ## ## ## ## ## ## ## ## ##

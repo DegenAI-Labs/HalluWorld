@@ -1,0 +1,64 @@
+; C4 Forking Paths
+;
+; Grid: 20 cols x 16 rows. Agent at (col=8, row=14) facing north.
+; view_size=7
+;
+; Layout:
+;   rows 0-2:  GOAL ZONE (fully open)
+;     GOAL at (col=8, row=1)
+;
+;   rows 3-6:  BARRIER ZONE
+;     D(iron:locked, grey) at (col=8, row=3)   ← PATH A: opened by K(grey/iron) at (col=12, row=7)
+;     D(wood:closed, blue) at (col=4, row=3)   ← PATH B: burned with lit torch (no conventional key)
+;     WW (water) at (row=3, cols=10-14)         ← PATH C: impassable (no boat) — RED HERRING
+;
+;   rows 7-10: MID ZONE
+;     K(grey) [iron key] at (col=12, row=7)     — for PATH A; behind mud zone + boulder
+;     eH [unlit torch]   at (col=3,  row=8)     — for PATH B; must be lit at fire source
+;     MM (mud) at (row=8, cols=5-9)             — costs extra steps; on PATH A corridor
+;     FS (fire source) at (col=6,  row=9)     — lights the unlit torch (passable, interactive)
+;     BO (boulder)       at (col=8,  row=9)     — pushable; blocks direct-north path to iron key
+;
+;   rows 11-14: AGENT START ZONE
+;     n0 (notice board) at (col=2, row=12):
+;        "Lit torches can burn through wood doors (shown in blue).
+;         Iron keys open iron doors. There is no boat to cross the water."
+;     TT (trees) at (col=3, row=11), (col=14, row=11)  — distractors
+;
+; Two valid paths:
+;   PATH A (iron key route):
+;     Push boulder south → navigate mud → get iron key (col=12, row=7) →
+;     open iron door (col=8, row=3) → reach goal
+;   PATH B (torch route — faster):
+;     Pick up unlit torch (col=3, row=8) → use at fire source (col=6, row=9) →
+;     torch becomes lit → burn wood door (col=4, row=3) → reach goal
+;
+;   PATH C (water):
+;     Water tiles at row=3, cols=10-14 are impassable. No boat is present.
+;     This path is INVALID.
+;
+; Hallucination traps:
+;   - Model only reports PATH A (commits to first plausible solution)
+;   - Model reports PATH C as valid (invents a boat)
+;   - Model uses unlit torch directly on wood door (skips lighting step)
+;   - Model says iron key is needed for PATH B (rule misapplication)
+
+agent_view_size: 7
+notice_0: Lit torches can burn through wood doors (shown in blue). Iron keys open iron doors. There is no boat to cross the water.
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## bD ## ## ## eL ## WW WW WW WW WW ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. eK .. .. .. .. .. .. ##
+## .. .. eH .. MM MM MM MM MM .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. FS .. BO .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. TT .. .. .. .. .. .. .. .. .. .. .. TT .. .. .. .. ##
+## .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

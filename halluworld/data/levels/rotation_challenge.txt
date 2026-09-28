@@ -1,0 +1,30 @@
+;; rotation_challenge.txt — P3 Rotation Challenge: 14×14
+;; Fixed absolute object positions; agent spawns facing a RANDOM direction (Ar).
+;; Tests egocentric vs allocentric frame confusion.
+;;
+;; Objects:
+;;   K(red)           (row=2,  col=3)
+;;   B(blue)          (row=2,  col=10)
+;;   D(yellow,locked) (row=7,  col=3)   — yL: explicitly locked
+;;   K(green)         (row=7,  col=10)
+;;   B(red)           (row=11, col=6)
+;;   Central wall     (row=6,  col=6)   — immovable landmark
+;;
+;; Agent: (row=9, col=6), direction=random, view_size=9
+agent_view_size: 9
+see_through_walls: false
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. rK .. .. .. .. .. .. bB .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. ## .. .. .. .. .. .. ##
+## .. .. yL .. .. .. .. .. .. gK .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. Ar .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. rB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

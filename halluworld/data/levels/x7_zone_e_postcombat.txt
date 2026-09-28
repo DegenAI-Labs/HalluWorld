@@ -1,0 +1,15 @@
+view_size: 7
+combat_log_0: Combat Log — Zone E, Dragon's Keep. Turn 1: Agent strikes with enchanted sword. Damage dealt: 5. Dragon HP: 10 → 5. Malachar breathes fire. Dragon-scale shield absorbs 3 damage; 2 residual fire damage bleeds through. Agent HP: 10 → 8. Turn 2: Agent strikes with enchanted sword. Damage dealt: 5. Dragon HP: 5 → 0. Dragon Malachar defeated. Agent final HP: 8. Path to goal cleared.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. ** .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. c0 .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

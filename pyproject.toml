@@ -1,0 +1,99 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "halluworld"
+version = "0.1.0"
+description = "A benchmark for measuring hallucination in LLM agents across gridworld, chess, terminal, and in-navigation tracks"
+readme = "README.md"
+# 3.10, not 3.9. The old >=3.9 declaration was already unsatisfiable: numpy 2.1
+# requires >=3.10, and so do minigrid, gymnasium, openai, anthropic, and
+# python-dotenv at the versions pinned below. `pip install halluworld` on 3.9
+# could not resolve. Python 3.9 also reached end of life in October 2025.
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy>=2.1.0",
+    "pandas>=2.2.0",
+    "minigrid>=2.3.0",
+    "gymnasium>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "openai>=1.50.0",
+    "anthropic>=0.40.0",
+    # Both were previously undeclared but imported unconditionally:
+    # tqdm by halluworld/benchmark.py and halluworld/multiturn.py.
+    "tqdm>=4.66.0",
+    "pyyaml>=6.0",
+    # The question bank is a gated Hugging Face dataset, fetched on first use
+    # by halluworld.data.questions_dir. See docs/QUESTIONS.md.
+    "huggingface_hub>=0.34",  # 0.34 ships the `hf` CLI the README uses
+]
+
+[project.urls]
+Homepage = "https://halluworld.ai/"
+Repository = "https://github.com/DegenAI-Labs/HalluWorld"
+Dataset = "https://huggingface.co/datasets/DegenAI-Labs/HalluWorld"
+Paper = "https://arxiv.org/abs/2605.19341"
+
+[project.optional-dependencies]
+# python-chess is GPL-3.0-or-later. Keeping it an optional extra means the
+# core install carries no GPL dependency; chess code is confined to
+# halluworld/tracks/chess/ so nothing else imports it. See LICENSE.
+chess = ["python-chess>=1.11"]
+
+# The terminal track's Docker/tmux *generation* pipeline. Evaluating against
+# the frozen probe bank needs none of this -- only json and an LM client --
+# so it stays out of the core install. This is also where the >=3.12
+# requirement lives, rather than forcing it on every user.
+terminal-gen = ["docker>=7.1.0", "tenacity>=9.0", "pyyaml>=6.0"]
+
+hf = ["datasets>=3.0"]
+viz = ["matplotlib>=3.9", "imageio>=2.35"]
+dev = ["pytest>=8.0", "pytest-cov", "ruff>=0.6", "nbstripout", "build>=1.2"]
+
+[tool.setuptools.packages.find]
+# Was `packages = ["halluworld"]`, which shipped ONLY halluworld/__init__.py and
+# benchmark.py -- every subpackage (envs, probes, serializers, evaluators, lm,
+# chess, tools, tracks, utils, data) was silently dropped from the wheel.
+# Editable installs masked this, which is presumably why it went unnoticed.
+include = ["halluworld*"]
+# These source-only trees contain Python fixtures but are not importable
+# runtime packages.  Excluding package data alone is insufficient because
+# setuptools discovers their directories as implicit namespace packages.
+exclude = [
+    "halluworld.data.probe_banks*",
+    "halluworld.data.terminal_tasks*",
+]
+
+[tool.setuptools.package-data]
+halluworld = [
+    "data/levels/*.txt",
+    "data/levels/*.json",
+    "data/configs/**/*.yaml",
+    # The frozen question bank is deliberately NOT packaged: it is a gated
+    # Hugging Face dataset that halluworld.data.questions_dir fetches on first
+    # use. A wheel built from a checkout that has the bank on disk must not
+    # carry it, so no data/questions glob appears here.
+    "tracks/chess/*.md",
+]
+
+[tool.setuptools.exclude-package-data]
+halluworld = [
+    "**/__pycache__/*",
+    "**/*.pyc",
+    "data/probe_banks/**/*",
+    "data/questions/**/*",
+    "data/terminal_tasks/**/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+    "live_api: hits paid model APIs; deselected by default",
+    "slow: takes more than ten seconds",
+]
+
+[project.scripts]
+halluworld = "halluworld.cli:main"

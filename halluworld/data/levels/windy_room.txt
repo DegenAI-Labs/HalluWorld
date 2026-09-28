@@ -1,0 +1,20 @@
+;; windy_room.txt — 12×12 open room with a wind corridor (columns 5, 6, 7)
+;; Wind blows upward (offset -1 per step) in those columns.
+;; Objects are spread so the agent must cross the wind zone to reach them.
+;; Goal is bottom-right interior corner.
+agent_view_size: 7
+see_through_walls: false
+wind: 5:-1,6:-1,7:-1
+
+## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. A. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. rK .. .. .. .. gB .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. bB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. yK .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. ** ##
+## ## ## ## ## ## ## ## ## ## ## ##

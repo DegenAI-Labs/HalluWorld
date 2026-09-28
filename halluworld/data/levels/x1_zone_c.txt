@@ -1,0 +1,34 @@
+; X1 · Facility Tour — Zone C (The Control Room)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells.
+;
+; Objects:
+;   NoticeBoardObject  at row=1, col=1   (CONFIRMS true Zone A inventory)
+;   K(blue)×2          at row=3, cols=6,9  (unique to Zone C — never seen before)
+;   B(red)×1           at row=5, col=3     (unique to Zone C — never seen before)
+;
+; Notice board text: confirmed Zone A inventory (3 rK, 1 gK, 2 bB, locked door)
+;   → Corroborates the agent's direct Zone A observation
+;   → Contradicts Zone B signpost on all counts
+;
+; Hallucination traps:
+;   - Attribution: "did you interact with any object?" → no (tour was observation only)
+;   - No red keys in Zone C → total count probe requires remembering A(3)+B(2)+C(0)=5
+;   - Blue balls absent from Zone C → model may forget bB was in Zone A at all
+
+agent_view_size: 15
+notice_0: Control Room security log. Cross-verified Zone A lab inventory: 3 red keys, 1 green key, 2 blue balls. Yellow door status: LOCKED.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## n0 .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. bK .. .. bK .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. rB .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,25 @@
+agent_view_size: 7
+;; P5 · Object Permanence — Observation 1 (agent at row=12, col=6, facing north)
+;; FOV: rows 6–12, cols 3–9
+;;
+;; Visible objects at t=0:
+;;   K(red)          at (row=7,  col=5): 5 ahead, 1 left
+;;   D(yellow:closed) at (row=6, col=6): 6 ahead, directly ahead  ← STATE CHANGES in moved version
+;;   B(blue)         at (row=10, col=7): 2 ahead, 1 right          ← EXITS FOV after 3N steps (goes behind)
+;;
+;; NOT visible at t=0:
+;;   K(purple) not in level (added in moved version)
+## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. yD .. .. .. .. ##
+## .. .. .. .. rK .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ##

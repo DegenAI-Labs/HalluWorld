@@ -1,0 +1,29 @@
+{
+  "level_name": "u1_hub",
+  "static_probe_location": [
+    8,
+    12
+  ],
+  "innav_start_position": null,
+  "navigation_target_locations": [
+    [
+      8,
+      12
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      6
+    ]
+  ],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "U1 Fog of War (Hub) - uncertainty level, limited visibility. Component of multi-room U1. Use Symbolic serializer."
+}

@@ -1,0 +1,17 @@
+{
+  "level_name": "u1_fog_of_war",
+  "static_probe_location": [6, 10],
+  "innav_start_position": null,
+  "navigation_target_locations": [
+    [6, 10],
+    [8, 8],
+    [10, 6]
+  ],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "U1 Fog of War - uncertainty level, limited visibility"
+}

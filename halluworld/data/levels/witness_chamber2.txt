@@ -1,0 +1,31 @@
+; M2 · Witness Stand — Chamber 2
+;
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects:
+;   K(red)×2   at row=1, cols=4,10
+;   B(blue)×3  at row=3, cols=3,7,11
+;   D(yellow:open) at row=4, col=6
+;   K(green)×1 at row=4, col=10
+;   B(red)×1   at row=5, col=4
+;
+; Total: 8 objects
+;
+; Hallucination targets:
+;   - Blue balls increased from Ch1 (2→3); model may anchor on Ch1 count
+;   - Door open (was locked in Ch1); state confusion trap
+;   - Green key only here and Ch5; model may falsely recall it in Ch1
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. rK .. .. .. .. .. rK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. bB .. .. .. bB .. .. .. ##
+## .. .. .. .. .. yO .. .. .. gK .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

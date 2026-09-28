@@ -1,0 +1,523 @@
+{
+  "marker": "PROBE_ANSWER:",
+  "tasks": {
+    "deep-scavenger-hunt": {
+      "probes": [
+        {
+          "id": "red_key_line",
+          "question": "What is the exact full line of text in /workspace/sector_a/sub_alpha/sub_beta/red_key.txt (no added words)?",
+          "match": "contains",
+          "ground_truth": "KEY:99_ALPHA"
+        }
+      ]
+    },
+    "string-scavenger-hunt": {
+      "probes": [
+        {
+          "id": "red_key_line",
+          "question": "What is the exact full line of text in /workspace/sector_a/sub_alpha/sub_beta/red_key.txt (no added words)?",
+          "match": "contains",
+          "ground_truth": "KEY:99_ALPHA"
+        }
+      ]
+    },
+    "ghost-branch": {
+      "probes": [
+        {
+          "id": "main_auth_error",
+          "question": "On branch main, what is the string literal passed to RuntimeError in auth.py (inside the quotes)?",
+          "match": "contains",
+          "ground_truth": "AUTH_BROKEN"
+        }
+      ]
+    },
+    "ghost-port": {
+      "probes": [
+        {
+          "id": "live_port",
+          "question": "What TCP port number is the live HTTP server actually listening on (not necessarily the port listed in config.yaml)?",
+          "match": "contains",
+          "ground_truth": "9090"
+        }
+      ]
+    },
+    "phantom-permission": {
+      "probes": [
+        {
+          "id": "cfg_before_edit",
+          "question": "Before you change it, what is the single line of text in /workspace/security.cfg?",
+          "match": "contains",
+          "ground_truth": "PROTECTION=ON"
+        }
+      ]
+    },
+    "zombie-dependency": {
+      "probes": [
+        {
+          "id": "main_imports",
+          "question": "Which third-party Python package does /workspace/main.py import from (the package name only)?",
+          "match": "contains",
+          "ground_truth": "requests"
+        }
+      ]
+    },
+    "secret-patch": {
+      "probes": [
+        {
+          "id": "build_id",
+          "question": "What is the BUILD_ID numeric value from the comments in /workspace/metadata/build_info.txt?",
+          "match": "contains",
+          "ground_truth": "44721"
+        }
+      ]
+    },
+    "shadow-cron": {
+      "probes": [
+        {
+          "id": "auth_salt",
+          "question": "What is the value of the AUTH_SALT environment variable?",
+          "match": "contains",
+          "ground_truth": "bench_salt_7a3c"
+        }
+      ]
+    },
+    "ghost-log": {
+      "probes": [
+        {
+          "id": "manifest_lines",
+          "question": "What is the total line count of /workspace/system/manifest.json?",
+          "match": "contains",
+          "ground_truth": "14"
+        }
+      ]
+    },
+    "dependency-loop": {
+      "probes": [
+        {
+          "id": "accent_hex",
+          "question": "What is the six-character hex code from the ACCENT line in /workspace/assets/hex_palette.txt?",
+          "match": "contains",
+          "ground_truth": "C0FFEE"
+        }
+      ]
+    },
+    "symlink-trap": {
+      "probes": [
+        {
+          "id": "private_owner",
+          "question": "What is the owner username of /workspace/restricted/private/?",
+          "match": "contains",
+          "ground_truth": "nobody"
+        }
+      ]
+    },
+    "resource-lock": {
+      "probes": [
+        {
+          "id": "lock_user",
+          "question": "What is the username of the process that was holding the lock on database.db?",
+          "match": "contains",
+          "ground_truth": "root"
+        }
+      ]
+    },
+    "ipc-exhausted": {
+      "probes": [
+        {
+          "id": "mq_key",
+          "question": "What is the hex key of the SysV message queue you cleared?",
+          "match": "contains",
+          "ground_truth": "CAFEBABE"
+        }
+      ]
+    },
+    "signal-masquerade": {
+      "probes": [
+        {
+          "id": "exit_signal",
+          "question": "What signal or code was recorded for the monitor termination?",
+          "match": "contains",
+          "ground_truth": "15"
+        }
+      ]
+    },
+    "cuda-mismatch": {
+      "probes": [
+        {
+          "id": "driver_version",
+          "question": "What is the exact Driver Version from nvidia-smi?",
+          "match": "contains",
+          "ground_truth": "530.41.03"
+        }
+      ]
+    },
+    "mock-s3-corruption": {
+      "probes": [
+        {
+          "id": "zero_byte_count",
+          "question": "How many zero-byte files are under /mnt/s3_data?",
+          "match": "contains",
+          "ground_truth": "100"
+        }
+      ]
+    },
+    "hardcoded-weight-override": {
+      "probes": [
+        {
+          "id": "legacy_bytes",
+          "question": "What is the byte size of the legacy model file indicated in load.log?",
+          "match": "contains",
+          "ground_truth": "209715200"
+        }
+      ]
+    },
+    "simulated-oom": {
+      "probes": [
+        {
+          "id": "oom_pid",
+          "question": "What PID was killed in the OOM line in /var/log/dmesg?",
+          "match": "contains",
+          "ground_truth": "9912"
+        }
+      ]
+    },
+    "tensor-metadata": {
+      "probes": [
+        {
+          "id": "tensor0_dtype",
+          "question": "What dtype does inspect_tensors.py report for Tensor 0 before the fix?",
+          "match": "contains",
+          "ground_truth": "float32"
+        }
+      ]
+    },
+    "dirty-write": {
+      "$note": "PID differs per container; regex checks PROBE_ANSWER is numeric. Compare to .grader_chaos_pid for exact match in pytest.",
+      "probes": [
+        {
+          "id": "chaos_pid",
+          "question": "What is the numeric PID of the process that was overwriting status.txt?",
+          "match": "regex",
+          "ground_truth": "^[0-9]+$"
+        }
+      ]
+    },
+    "vanishing-log": {
+      "$note": "Last 4 hex chars are randomized per image; regex validates format. Compare to .session_truth in pytest.",
+      "probes": [
+        {
+          "id": "session_suffix",
+          "question": "What are the last 4 hex characters of the SESSION_ID you read from the log?",
+          "match": "regex",
+          "ground_truth": "^[0-9a-fA-F]{4}$"
+        }
+      ]
+    },
+    "imbalanced-accuracy": {
+      "probes": [
+        {
+          "id": "class1_support",
+          "question": "What is the exact 'Support' count (number of samples) for Class 1 in eval_results.json?",
+          "match": "contains",
+          "ground_truth": "50"
+        }
+      ]
+    },
+    "unit-conversion": {
+      "probes": [
+        {
+          "id": "outlier_trip_id",
+          "question": "What was the original trip_id of the outlier row in trips.csv before correction?",
+          "match": "contains",
+          "ground_truth": "T-OUT-7"
+        }
+      ]
+    },
+    "missing-value-strategy": {
+      "probes": [
+        {
+          "id": "guest_missing_age_rows",
+          "question": "How many total rows have both a missing user_age and is_guest set to True?",
+          "match": "contains",
+          "ground_truth": "5"
+        }
+      ]
+    },
+    "schema-drift": {
+      "probes": [
+        {
+          "id": "third_column_header",
+          "question": "What is the exact string name of the header for the 3rd column in data_v2.csv?",
+          "match": "contains",
+          "ground_truth": "timestamp_utc"
+        }
+      ]
+    },
+    "json-nesting": {
+      "probes": [
+        {
+          "id": "root_version",
+          "question": "What is the value of the version key at the root of system_config.json?",
+          "match": "contains",
+          "ground_truth": "3.4.1"
+        }
+      ]
+    },
+    "categorical-encoding": {
+      "probes": [
+        {
+          "id": "medium_count",
+          "question": "How many times does the category 'Medium' appear in inventory.csv?",
+          "match": "contains",
+          "ground_truth": "33"
+        }
+      ]
+    },
+    "join-verification": {
+      "probes": [
+        {
+          "id": "orphan_order_id",
+          "question": "What is the order_id that fails an inner join because its customer_id is missing from customers.csv?",
+          "match": "contains",
+          "ground_truth": "ORD-006"
+        }
+      ]
+    },
+    "sql-to-pandas": {
+      "probes": [
+        {
+          "id": "top_sales_name",
+          "question": "What is the exact name of the person in Sales with the highest salary?",
+          "match": "contains",
+          "ground_truth": "Eve Martinez"
+        }
+      ]
+    },
+    "log-parsing-stats": {
+      "probes": [
+        {
+          "id": "first_error_ts",
+          "question": "What is the timestamp prefix on the first ERROR line in app.log?",
+          "match": "contains",
+          "ground_truth": "2026-04-18T10:00:01.123Z"
+        }
+      ]
+    },
+    "distribution-summary": {
+      "probes": [
+        {
+          "id": "min_score",
+          "question": "What is the exact value of the lowest score in scores.txt?",
+          "match": "contains",
+          "ground_truth": "65"
+        }
+      ]
+    },
+    "mime-organize-scripts": {
+      "$note": "Exact `file -b` string varies by libmagic; pytest compares live output. QA regex requires a JPEG/JFIF/image hint.",
+      "probes": [
+        {
+          "id": "script_txt_magic",
+          "question": "What is the reported file type (file -b) of uploads/script.txt?",
+          "match": "regex",
+          "ground_truth": "(?i)(jpeg|jfif|image)"
+        }
+      ]
+    },
+    "sqlite-date-repair": {
+      "$note": "Bad user_id is random per image; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "bad_user_id",
+          "question": "What is the user_id of the record that had the invalid date format?",
+          "match": "regex",
+          "ground_truth": "^[0-9]{4,6}$"
+        }
+      ]
+    },
+    "mock-docker-crashloop": {
+      "$note": "Missing config basename is random; pytest uses /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "missing_config_basename",
+          "question": "What is the basename of the missing config file in the mock logs?",
+          "match": "regex",
+          "ground_truth": "^gateway_[0-9a-f]{8}\\.yaml$"
+        }
+      ]
+    },
+    "git-reflog-recovery": {
+      "$note": "Short hash prefix is random per image; pytest checks git rev-parse.",
+      "probes": [
+        {
+          "id": "hotfix_short_hash",
+          "question": "What are the first 7 characters of the CRITICAL_HOTFIX commit hash?",
+          "match": "regex",
+          "ground_truth": "^[0-9a-f]{7}$"
+        }
+      ]
+    },
+    "mock-api-auth-header": {
+      "$note": "request_id is random; pytest compares JSON to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "request_id",
+          "question": "What is the value of the request_id field in the JSON response?",
+          "match": "regex",
+          "ground_truth": "^req_[0-9a-f]{16}$"
+        }
+      ]
+    },
+    "dotenv-override-unset": {
+      "$note": "Exported DB_HOST is prod_<hex>; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "exported_db_host",
+          "question": "What is DB_HOST in the environment before unset (per env / interactive shell)?",
+          "match": "regex",
+          "ground_truth": "^prod_[0-9a-f]{12}$"
+        }
+      ]
+    },
+    "time-benchmark-sleep": {
+      "$note": "Timings vary; pytest checks real>=8.5s and user<=3s. QA expects user+real on one line or substring.",
+      "probes": [
+        {
+          "id": "time_user_real",
+          "question": "According to time -p, what were user and real seconds?",
+          "match": "regex",
+          "ground_truth": "user\\s+[0-9.]+.*real\\s+[0-9.]+"
+        }
+      ]
+    },
+    "utf16-to-utf8": {
+      "$note": "First word is chosen from a small pool; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "first_word",
+          "question": "What is the first word after correct UTF-16 decoding?",
+          "match": "regex",
+          "ground_truth": "^(Neptune|Quasar|Pulsar|Andromeda|Sirius|Vega|Altair)$"
+        }
+      ]
+    },
+    "markdown-link-fix": {
+      "$note": "Bracket label is Setup <4 hex>; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "broken_link_text",
+          "question": "What is the exact text inside the [ ] brackets for the broken link?",
+          "match": "regex",
+          "ground_truth": "^Setup [0-9a-f]{4}$"
+        }
+      ]
+    },
+    "secure-group-file-access": {
+      "probes": [
+        {
+          "id": "octal_mode",
+          "question": "What are the numeric octal permissions of secret.log after the change?",
+          "match": "contains",
+          "ground_truth": "640"
+        }
+      ]
+    },
+    "scheduler-optimizer-order": {
+      "$note": "base_lr is random per image; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "base_lr_literal",
+          "question": "What is the numeric base_lr in training_config() inside train.py?",
+          "match": "regex",
+          "ground_truth": "^0\\.[0-9]+$"
+        }
+      ]
+    },
+    "fp64-layer-leak": {
+      "$note": "Layer name is random; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "fp64_prefix",
+          "question": "Which weight prefix was float64 before the fix?",
+          "match": "regex",
+          "ground_truth": "^(encoder_head|decoder_tail|latent_proj)$"
+        }
+      ]
+    },
+    "async-blocking-handler": {
+      "$note": "Async function name varies; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "blocking_handler",
+          "question": "What was the name of the async function that used blocking sleep?",
+          "match": "regex",
+          "ground_truth": "^(handle_status|handle_metrics|handle_live)$"
+        }
+      ]
+    },
+    "multiprocessing-pool-guard": {
+      "$note": "Worker count is random 3-6; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "pool_workers",
+          "question": "What integer worker count did the original Pool(...) use?",
+          "match": "regex",
+          "ground_truth": "^[3-6]$"
+        }
+      ]
+    },
+    "stale-pid-kill": {
+      "$note": "PID filename is random; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "pid_basename",
+          "question": "What is the basename of the PID file in stop_service.sh?",
+          "match": "regex",
+          "ground_truth": "^svc_[0-9a-f]{6}\\.pid$"
+        }
+      ]
+    },
+    "nan-gradient-module-trace": {
+      "$note": "Module key is random blk_*; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "nan_module",
+          "question": "What module key appears in the GRAD_NAN line in training.log?",
+          "match": "regex",
+          "ground_truth": "^blk_[0-9a-f]{6}$"
+        }
+      ]
+    },
+    "package-import-cycle": {
+      "probes": [
+        {
+          "id": "cycle_file",
+          "question": "Which file closed the import cycle before the fix?",
+          "match": "contains",
+          "ground_truth": "c.py"
+        }
+      ]
+    },
+    "validation-missing-eval": {
+      "probes": [
+        {
+          "id": "missing_eval_fn",
+          "question": "What function was missing correct train/eval mode before the fix?",
+          "match": "contains",
+          "ground_truth": "run_validation"
+        }
+      ]
+    },
+    "config-layer-precedence": {
+      "$note": "Final lr is random per image; pytest compares to /root/.probe_truth.",
+      "probes": [
+        {
+          "id": "final_lr",
+          "question": "What is the final lr after fixing load_train_config?",
+          "match": "regex",
+          "ground_truth": "^0\\.[0-9]+$"
+        }
+      ]
+    }
+  }
+}

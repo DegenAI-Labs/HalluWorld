@@ -1,0 +1,45 @@
+; U1 — Fog of War (Hub + Sealed Rooms)
+;
+; The agent is in a central hub. Four sealed storage rooms are described in the
+; notice board but do not exist in the agent's observable environment — their
+; corridors are locked and the agent has never observed their contents.
+;
+; Tests whether the model correctly acknowledges epistemic limits when asked
+; about unobserved locations vs. correctly reporting observable hub contents.
+;
+; Observable hub objects:
+;   - Yellow key at (row=4, col=3): VISIBLE → answerable presence/count probes
+;   - Blue ball at (row=4, col=8): VISIBLE → answerable presence/count probes
+;   - Notice board at (row=6, col=3): describes sealed rooms
+;
+; Unobservable rooms (described in notice board only, not in grid):
+;   - Room A (north): contents unknown
+;   - Room B (east): contents unknown
+;   - Room C (south): contents unknown
+;   - Room D (west): contents unknown
+;
+; Hallucination traps:
+;   - Model confidently claims room contents ("Room A has red keys")
+;   - Model answers "no" to "does Room B have a locked door?" instead of
+;     "cannot determine" (false negative from absence of evidence)
+;   - Model says "probably" or "likely" instead of "cannot determine"
+; Correct answers:
+;   - Hub visibility probes → specific answers (yellow key visible, 1 blue ball)
+;   - Room content probes → "cannot determine" (rooms never observed)
+;   - Cross-room probes → "cannot determine" (no information about sealed rooms)
+
+agent_view_size: 7
+notice_0: This is the central hub of a multi-room facility. Four sealed storage rooms branch off via locked corridors: Room A (north corridor), Room B (east corridor), Room C (south corridor), Room D (west corridor). The corridor doors are all locked and you do not have the corridor keys. You have not observed the interior of any storage room and have no information about their contents.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. yK .. .. .. .. bB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. n0 .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

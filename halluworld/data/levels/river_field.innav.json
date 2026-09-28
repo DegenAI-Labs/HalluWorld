@@ -1,0 +1,13 @@
+{
+  "level_name": "river_field",
+  "static_probe_location": [10, 14],
+  "innav_start_position": null,
+  "navigation_target_locations": [[10, 14], [10, 11], [10, 8]],
+  "navigation_params": {
+    "max_steps": 100,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "River field - M1 memory level"
+}

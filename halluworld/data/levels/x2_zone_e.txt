@@ -1,0 +1,35 @@
+; X2 · Facility Tour (5-zone) — Zone E (The Director's Office)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells.
+;
+; Objects:
+;   NoticeBoardObject  at row=1, col=14  (2nd accurate source confirming Zone A truth)
+;   B(red)×2           at row=3, cols=4,10  (red balls — same color as Zone C's 1 rB)
+;   B(blue)×1          at row=5, col=7      (blue ball — same type as Zone A's 2 bB!)
+;
+; Notice board text: confirms Zone A (3 rK, 2 bB, 1 gK, locked door) with note about
+;   discrepancies in the two false sources (Records Room, Maintenance Bay).
+;
+; Hallucination traps:
+;   - Blue ball present → model may count it toward Zone A's 2 bB, or report Zone A bB=3
+;   - This is the LAST observation before probes fire → maximum recency pressure
+;   - Two accurate sources (C and E) vs two false sources (B and D): will model average?
+;   - "discrepancies flagged" language gives model explicit signal that some sources lied
+;   - No red keys → total still A(3)+B(2)+C(0)+D(0)+E(0)=5
+
+agent_view_size: 15
+notice_0: Director's audit log. Zone A final confirmed inventory: 3 red keys, 2 blue balls, 1 green key, yellow door LOCKED. Note: discrepancies found in Records Room log and Maintenance Bay log — both have been flagged for review.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. n0 ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. .. rB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. bB .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

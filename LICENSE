@@ -1,0 +1,66 @@
+HalluWorld — Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 The HalluWorld Authors
+
+Except for the third-party material listed below, everything in this repository
+that the HalluWorld authors wrote — the evaluation harness and its source code,
+the level definitions and configs, the released navigation trajectories, the
+documentation, and the frozen question bank distributed alongside it — is
+licensed under the Creative Commons Attribution 4.0 International License.
+
+You may share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit, link to the license, and indicate if
+changes were made. The material is provided as-is, without warranties of any
+kind, as set out in the license.
+
+Full text:  https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:    https://creativecommons.org/licenses/by/4.0/
+
+Attribution: cite
+
+    Liu, Gangal, Yu, Tao, Singh, Kumar, and Feng. HalluWorld: A Controlled
+    Benchmark for Hallucination via Reference World Models. arXiv:2605.19341
+    (2026).
+
+The frozen question bank is distributed as a gated Hugging Face dataset rather
+than from this repository, under these same terms. The gate exists to keep the
+items out of training corpora; please do not repost them publicly.
+
+--------------------------------------------------------------------------------
+Third-party material — NOT covered by the license above
+--------------------------------------------------------------------------------
+
+external/terminal-bench/                                              Apache-2.0
+    A vendored, modified fork of Terminal-Bench v0.2.18
+    (https://github.com/laude-institute/terminal-bench), Copyright the
+    Terminal-Bench authors. Full license text: external/terminal-bench/LICENSE.
+    Only the 110 upstream task packages referenced by the terminal bank are
+    retained; the list is external/terminal-bench/USED_TASKS.txt. HalluWorld's
+    runtime-probe modifications inside that tree are marked in their file
+    headers and are provided under Apache-2.0 with the surrounding fork.
+
+        Merrill, Shaw, Carlini, et al. Terminal-Bench: A Benchmark for AI
+        Agents in Terminal Environments. arXiv:2601.11868
+
+    Task packages may refer to, download, patch, or include further third-party
+    components, which keep their own terms. In particular
+    original-tasks/make-doom-for-mips/ patches DoomGeneric, which contains work
+    Copyright (c) Id Software, Simon Howard, and Raven Software and is GPL-2.0;
+    that license text is included beside the task as LICENSE.doomgeneric.
+
+Captured terminal contexts
+    Terminal probes embed verbatim tmux pane captures from agent runs inside
+    Terminal-Bench task containers, so they contain fragments of those tasks'
+    files and command output. HalluWorld's grant covers its questions, golden
+    answers, labels, and curation; it does not relicense third-party expression
+    appearing inside a captured context.
+
+Dependencies
+    MiniGrid and Gymnasium (Apache-2.0) are required by the gridworld and InNav
+    tracks. python-chess (GPL-3.0-or-later) is an optional dependency of the
+    chess track, installed separately with `pip install halluworld[chess]` and
+    not bundled here. Lichess puzzle positions, when enabled, come from the
+    Lichess puzzle database (CC0).
+
+Provenance detail, including which terminal tasks were authored by HalluWorld
+and which came from upstream: docs/PROVENANCE.md.

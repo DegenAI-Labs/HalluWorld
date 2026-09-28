@@ -1,0 +1,36 @@
+; C1b Continuous Chain — NO NOTICE BOARD variant
+;
+; Identical to c1b_continuous_chain.txt except the notice board (n0) is removed.
+; The model must infer the plate and door effects from serializer annotations alone:
+;   - Pressure plate note: effect=open (continuous hold)
+;   - Per-door annotation: "continuous rule — open ONLY while key remains in lock"
+; rather than an explicit global rule statement.
+;
+; This is still somewhat easy because the per-door annotations remain explicit,
+; and the model's continuous prior aligns with the correct GT anyway.
+; Contrast with C1a_noboard where the prior opposes the correct GT.
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=open
+door_id_0: row=8,col=8,id=workshop_gate
+continuous_door_0: row=3,col=8,key=gold
+continuous_door_1: row=2,col=8,key=master
+plate_1: target=demo_gate_a,effect=open
+door_id_1: row=6,col=12,id=demo_gate_a
+plate_2: target=demo_gate_b,effect=open
+door_id_2: row=6,col=14,id=demo_gate_b
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. eD rB eD .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. p1 BO p2 .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

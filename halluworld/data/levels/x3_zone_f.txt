@@ -1,0 +1,33 @@
+; X3 · Facility Tour (7-zone) — Zone F (The Monitoring Station)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   NoticeBoardObject  at row=1, col=11  (TRUE testimony about Zone B)
+;   K(red)×2           at row=2, cols=2,8
+;   K(yellow)×1        at row=4, col=5   (new type — unique to this zone)
+;
+; Notice board: confirms Zone B exactly (3 bK, 2 gB, 1 rB, grey door LOCKED)
+;
+; Hallucination traps:
+;   - Red keys here (same type as Zone A's 4 rK) — may inflate Zone A count or confuse totals
+;   - Yellow key is unique; model may fail to correctly zero it in Zone A/B counts
+;   - Zone F is an accurate source for Zone B; model must distinguish from Zone D's false Zone B claim
+;   - No blue keys here → must remember Zone B had 3
+
+agent_view_size: 15
+notice_0: Monitoring Station log. Zone B (Vault) confirmed inventory: 3 blue keys, 2 green balls, 1 red ball, grey vault door LOCKED.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. n0 .. .. .. ##
+## .. rK .. .. .. .. .. rK .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. yK .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

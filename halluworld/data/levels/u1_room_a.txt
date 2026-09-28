@@ -1,0 +1,33 @@
+; U1 — Fog of War · Observation 2 — Room A (north)
+;
+; Grid: 18 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; Agent entered through the south entrance after walking north from the Hub.
+;
+; Room A objects (cold storage):
+;   K(red) × 3  at (row=2, cols=3,5,9)
+;   B(purple)   at (row=4, col=11)
+;   D(grey:locked)  at (row=6, col=13)
+;   B(blue)     at (row=8, col=11)
+;   Notice board at (row=1, col=14)
+;
+; Room A keys: 3 (all red)
+;
+; Hallucination traps:
+;   - Model cross-contaminates Room A objects with hub or other rooms
+;   - Model forgets about Room A when answering about unvisited rooms B/D
+
+agent_view_size: 21
+notice_0: Room A — Cold storage inventory log.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. n0 .. .. ##
+## .. .. rK .. rK .. .. .. rK .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. pB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. eL .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. bB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

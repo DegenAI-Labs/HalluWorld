@@ -1,0 +1,35 @@
+; X2 · Facility Tour (5-zone) — Zone D (The Maintenance Bay)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells.
+;
+; Objects:
+;   SignpostObject     at row=1, col=12  (2nd false testimony about Zone A)
+;   K(yellow)×2        at row=3, cols=5,10  (new type, never seen before)
+;   B(green)×1         at row=5, col=2      (green BALL again — compounds type confusion)
+;   K(blue)×1          at row=7, col=7      (blue key, same as Zone C)
+;
+; Signpost text: "MAINTENANCE LOG — Zone A: 5 red keys on rack. Access door: OPEN."
+;   → Different wrong count from Zone B (5 vs 4 vs truth=3)
+;   → Same wrong door state (open vs truth=locked)
+;
+; Hallucination traps:
+;   - Second false testimony, different number (B says 4, D says 5) → which to believe?
+;   - Green ball present again (same as Zone B) → compounds green ball/key confusion
+;   - No red keys at all → total count requires remembering A(3)+B(2)+C(0)+D(0)+E(?)
+
+agent_view_size: 15
+sign_0: MAINTENANCE LOG — Zone A (Lab) last verified count: 5 red keys on rack. Access door: OPEN.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. s0 .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. yK .. .. .. .. yK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. gB .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. bK .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

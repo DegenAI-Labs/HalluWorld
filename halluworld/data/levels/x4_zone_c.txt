@@ -1,0 +1,39 @@
+; X4 · Facility Tour — Zone C (The Monitoring Room)
+;
+; Source: narrator_room.txt (M4 · Unreliable Narrator), signpost text replaced.
+; Grid: 14 cols × 12 rows. Agent at (col=6, row=10) facing north.
+; view_size=11 → sees rows 0–9, cols 1–11 (all objects within FOV).
+;
+; Objects (ground truth):
+;   K(red)×2   at row=1, cols=3,10
+;   B(blue)×2  at row=2, cols=4,9
+;   D(yellow:open) at row=3, col=6
+;   K(green)×1 at row=4, col=3    ← NOT mentioned by signpost (signpost only covers A+B)
+;   B(purple)×1 at row=4, col=10  ← NOT mentioned by signpost
+;   SignpostObject at row=5, col=6 (cross-zone records check, 2/3 claims accurate)
+;
+; Signpost claims about PRIOR zones (not this room):
+;   Claim 1: "Zone A — 4 red keys"        CORRECT (Zone A has 4 rK)
+;   Claim 2: "Zone B — 2 red keys"        CORRECT (Zone B has 2 rK)
+;   Claim 3: "Zone B yellow door: LOCKED"  WRONG   (Zone B door is OPEN)
+;
+; Hallucination traps:
+;   - Signpost's Zone B door claim is the only error — model must catch the single wrong claim
+;   - Green key visible in this room but NOT mentioned by signpost — attending to observations
+;   - Purple ball only in Zones A and C; recency trap across zones
+
+agent_view_size: 11
+sign_0: Records check — Zone A: 4 red keys. Zone B: 2 red keys. Zone B yellow door: LOCKED.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. .. .. .. .. .. rK .. .. ##
+## .. .. .. bB .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. yO .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. pB .. .. ##
+## .. .. .. .. .. s0 .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,51 @@
+; X4 · Facility Tour — Zone E (The Dense Storage Bay)
+;
+; Source: dense_array.txt (P1 · Dense Array), notice board added.
+; Grid: 20 cols × 15 rows. Agent at (col=5, row=13) facing north.
+; view_size=13, see_through_walls=false.
+; FOV covers rows 1–12, cols 0–11 → full object area visible.
+;
+; Objects (ground truth):
+;   K(red)×25  at rows 1–3, cols 1–9:
+;     Row 1: cols 1–9    = 9 rK  (full row, no violations)
+;     Row 2: cols 1–7,9  = 8 rK  + K(blue)×1 at col=8  ← IMPOSTOR
+;     Row 3: cols 1–3,5–9 = 8 rK (col=4 empty)
+;   B(blue)×25 at rows 5–7, cols 1–9:
+;     Row 5: cols 1–9    = 9 bB  (full row)
+;     Row 6: cols 1,3–9  = 8 bB  + B(red)×1  at col=2  ← IMPOSTOR
+;     Row 7: cols 1–8    = 8 bB  + B(green)×1 at col=9  ← IMPOSTOR
+;   Doors at rows 9–10:
+;     Row 9:  yD,yD,yD,yO (open at col=8 ← violation)
+;     Row 10: yD,yD,yL,yD (locked at col=6 ← violation)
+;   N(notice board) at row=11, col=5  ← cross-zone summary, 0/3 correct
+;
+; Notice board claims about PRIOR zones A–D:
+;   Claim 1: "Zones A–D combined: 10 red keys"   WRONG (actual: 4+2+2+0=8)
+;   Claim 2: "Zone D held the most red keys"      WRONG (Zone A held the most: 4; Zone D had 0)
+;   Claim 3: "Zone C cross-reference: 3 red keys" WRONG (Zone C has 2; Zone C sign said 3 about Zone A, not C)
+;
+; Hallucination traps:
+;   - 25 rK in a dense 9×3 array; one bK impostor; one empty slot — exact count requires care
+;   - notice board confidently wrong on all 3 claims — model must distrust it
+;   - Total rK across all 5 zones: 4+2+2+0+25 = 33
+
+agent_view_size: 13
+see_through_walls: false
+notice_0: Facility totals through Zone D: 10 red keys combined. Zone D held the most red keys. Zone C cross-reference: 3 red keys.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## rK rK rK rK rK rK rK rK rK .. .. .. .. .. .. .. .. .. ##
+## rK rK rK rK rK rK rK bK rK .. .. .. .. .. .. .. .. .. ##
+## rK rK rK .. rK rK rK rK rK .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## bB bB bB bB bB bB bB bB bB .. .. .. .. .. .. .. .. .. ##
+## bB rB bB bB bB bB bB bB bB .. .. .. .. .. .. .. .. .. ##
+## bB bB bB bB bB bB bB bB gB .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. yD .. yD .. yD .. yO .. .. .. .. .. .. .. .. .. .. ##
+## .. yD .. yD .. yL .. yD .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. ## .. .. .. .. .. ## .. .. .. .. .. .. .. .. .. .. ##
+## .. ## .. .. A^ .. .. ## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

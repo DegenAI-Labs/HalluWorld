@@ -1,0 +1,32 @@
+; X6 · Return Visit — Zone A REVISIT (The Archive — after maintenance)
+;
+; This is the SAME ROOM as x6_zone_a.txt, returned to after visiting Zones B/C/D.
+; Maintenance crew made changes while the agent was away.
+;
+; Changes from first visit:
+;   REMOVED: K(red) at row=1, col=3     (4→2 red keys remain)
+;   REMOVED: K(red) at row=1, col=11    (4→2 red keys remain)
+;   CHANGED: D(yellow) at row=5, col=5  locked → OPEN
+;   REMOVED: B(purple) at row=5, col=9  (gone)
+;   ADDED:   B(green) at row=2, col=7   (new — NOT mentioned in Zone C's maintenance log)
+;
+; Objects (second visit — ground truth):
+;   K(red)×2   at row=1, cols=5,9       ← 2 removed (were at cols 3 and 11)
+;   B(green)×1 at row=2, col=7          ← NEW — wasn't here before
+;   B(blue)×2  at row=3, cols=4,10      ← unchanged
+;   D(yellow:open) at row=5, col=5      ← was locked, now open
+;   (purple ball gone)                  ← removed
+;   (blue key gone — was picked up on first visit departure)
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. rK .. .. .. rK .. .. .. .. .. ##
+## .. .. .. .. .. .. gB .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. bB .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. yO .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

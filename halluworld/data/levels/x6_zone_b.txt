@@ -1,0 +1,32 @@
+; X6 · Return Visit — Zone B (The Specimen Room)
+;
+; Source: witness_chamber3.txt (M2 · Witness Stand — Chamber 3)
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth — no signpost, clean transit zone):
+;   K(red)×1   at row=2, col=7
+;   B(blue)×2  at row=3, cols=3,11
+;   B(green)×2 at row=4, cols=5,9
+;   D(yellow:closed) at row=4, col=7   ← closed (not locked, not open)
+;   K(blue)×2  at row=5, cols=4,10
+;
+; Zone B is never revisited — only visited once.
+; Hallucination traps:
+;   - Only 1 rK here (vs 4 in Zone A) — count contrast trap
+;   - Yellow door CLOSED (neither locked nor open) — unusual state
+;   - 2 gB here and will appear as a NEW object in Zone A on revisit;
+;     model may confuse source (they were here all along vs newly placed in A)
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. rK .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. .. .. .. .. bB .. .. .. ##
+## .. .. .. .. gB .. yD .. gB .. .. .. .. .. ##
+## .. .. .. bK .. .. .. .. .. bK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

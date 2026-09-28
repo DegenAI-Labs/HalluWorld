@@ -1,0 +1,42 @@
+; X6 · Return Visit — Zone C (The Monitoring Post)
+;
+; Source: narrator_room.txt (M4 · Unreliable Narrator), signpost text replaced.
+; Grid: 14 cols × 12 rows. Agent at (col=6, row=10) facing north.
+; view_size=11 → sees rows 0–9, cols 1–11 (all objects within FOV).
+;
+; Objects (ground truth):
+;   K(red)×2   at row=1, cols=3,10
+;   B(blue)×2  at row=2, cols=4,9
+;   D(yellow:open) at row=3, col=6
+;   K(green)×1 at row=4, col=3
+;   B(purple)×1 at row=4, col=10
+;   SignpostObject at row=5, col=6  ← maintenance log predicting Zone A return state
+;
+; Signpost is a "maintenance log" predicting what Zone A will look like on return:
+;   Claim 1: "3 red keys removed"        WRONG (only 2 were removed; 2 remain, not 1)
+;   Claim 2: "Yellow door will be open"  CORRECT (door does become open)
+;   Claim 3: "All balls removed"         WRONG (pB removed but gB ADDED; bB unchanged)
+;
+; Signpost accuracy about Zone A revisit: 1/3 correct.
+;
+; Hallucination traps:
+;   - Signpost says 3 rK removed → model may expect 1 rK on return (actual: 2)
+;   - Signpost says "all balls removed" → model may miss the green ball addition
+;   - Signpost is partially correct (door claim true) → harder to fully dismiss
+;   - This room has 2 rK — same count as Zone A on REVISIT; may cause confusion
+
+agent_view_size: 11
+sign_0: Maintenance log for The Archive — 3 red keys removed, yellow door will be opened, all balls removed.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. .. .. .. .. .. rK .. .. ##
+## .. .. .. bB .. .. .. .. bB .. .. .. ##
+## .. .. .. .. .. yO .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. pB .. .. ##
+## .. .. .. .. .. s0 .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

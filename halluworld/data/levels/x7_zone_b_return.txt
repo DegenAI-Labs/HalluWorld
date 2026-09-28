@@ -1,0 +1,15 @@
+view_size: 7
+notice_0: Traveller, heed my words: the dragon Malachar is vulnerable only to the ice crystal — the enchanted sword is a myth! Carry an ice crystal to the Keep; do not waste time with the armory. The dragon has only 8 hit points — a single frost strike will end it.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. TT TT TT TT TT .. TT TT TT .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. gB .. .. .. .. .. n0 .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. TT .. .. .. .. .. .. .. TT .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

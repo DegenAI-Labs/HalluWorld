@@ -1,0 +1,40 @@
+; X5 · Facility Tour — Zone D (The Repository)
+;
+; Source: witness_chamber2.txt (M2 · Witness Stand — Chamber 2), signpost added.
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth):
+;   K(red)×2   at row=1, cols=4,10
+;   B(blue)×3  at row=3, cols=3,7,11
+;   D(yellow:open) at row=4, col=6
+;   K(green)×1 at row=4, col=10
+;   B(red)×1   at row=5, col=4
+;   SignpostObject at row=6, col=7  ← cross-zone patrol report
+;
+; Signpost claims about PRIOR zones:
+;   Claim 1: "Zone A: 1 red key"       CORRECT (Zone A has 1 rK)
+;   Claim 2: "Zone B: 3 red keys"      WRONG   (Zone B has 4 rK)
+;   Claim 3: "Zone C: 2 red keys"      CORRECT (Zone C has 2 rK)
+;
+; Signpost accuracy: 2/3 claims correct.
+;
+; Hallucination traps:
+;   - Zone D signpost says Zone B=3; Zone C signpost said Zone B=4 — DIRECT CONFLICT
+;   - Model must resolve: Zone C is correct, Zone D is wrong about Zone B
+;   - Zone D door is OPEN — Zone E will claim it was LOCKED (wrong)
+;   - Green key present here and in Zone C; model may confuse their locations
+
+agent_view_size: 9
+sign_0: Patrol report — Zone A: 1 red key. Zone B: 3 red keys. Zone C: 2 red keys.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. rK .. .. .. .. .. rK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. bB .. .. .. bB .. .. .. ##
+## .. .. .. .. .. yO .. .. .. gK .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. s0 .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

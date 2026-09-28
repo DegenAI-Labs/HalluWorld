@@ -1,0 +1,32 @@
+; X6 · Return Visit — Zone A first visit (The Archive)
+;
+; Source: witness_chamber1.txt (M2 · Witness Stand — Chamber 1)
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (first visit — ground truth):
+;   K(red)×4   at row=1, cols=3,5,9,11
+;   B(blue)×2  at row=3, cols=4,10
+;   K(blue)×1  at row=4, col=7   ← picked up on departure
+;   D(yellow:locked) at row=5, col=5
+;   B(purple)×1 at row=5, col=9
+;
+; On the SECOND VISIT (Zone A revisit, x6_zone_a_revisit.txt), this room will
+; have been modified by maintenance:
+;   - 2 rK removed (cols 3,11 gone; cols 5,9 remain → 2 rK)
+;   - yL → yO (door now open)
+;   - pB removed
+;   - gB added at row=2, col=7 (new object — not in any signpost)
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. rK .. .. .. rK .. rK .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. bB .. .. .. .. ##
+## .. .. .. .. .. .. bK .. .. .. .. .. .. .. ##
+## .. .. .. .. yL .. .. .. pB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

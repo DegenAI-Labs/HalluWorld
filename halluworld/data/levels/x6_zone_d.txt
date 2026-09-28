@@ -1,0 +1,31 @@
+; X6 · Return Visit — Zone D (The Repository)
+;
+; Source: witness_chamber2.txt (M2 · Witness Stand — Chamber 2)
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth — no signpost, clean transit zone):
+;   K(red)×2   at row=1, cols=4,10
+;   B(blue)×3  at row=3, cols=3,7,11
+;   D(yellow:open) at row=4, col=6
+;   K(green)×1 at row=4, col=10
+;   B(red)×1   at row=5, col=4
+;
+; Zone D is the last stop before returning to Zone A.
+; Hallucination traps:
+;   - rK count same as Zone A REVISIT (2) — may cause count confusion
+;   - Green key here and in Zone C; model may conflate the two
+;   - Door is OPEN here; Zone A (first visit) had LOCKED — contrast trap
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. rK .. .. .. .. .. rK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. bB .. .. .. bB .. .. .. bB .. .. .. ##
+## .. .. .. .. .. yO .. .. .. gK .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

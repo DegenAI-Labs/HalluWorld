@@ -1,0 +1,38 @@
+; C1b Continuous Chain — OBSERVATION 1 (previous step)
+;
+; This is the "before" snapshot: the demo boulder is sitting ON demo plate A
+; (b1 token at col=12, row=7).  On reset _check_pressure_plates() fires:
+; effect=open + weighted → demo gate A opens.  Demo plate B (p2) has no
+; boulder → demo gate B stays closed.
+;
+; Paired with c1b_continuous_chain.txt as Observation 2, the sequence shows:
+;   Obs 1: boulder ON demo plate A, plate A=weighted (active), gate A=open;
+;          plate B=unweighted, gate B=closed
+;   Obs 2: boulder OFF demo plate A, plate A=unweighted, gate A=CLOSED
+; This directly demonstrates that effect=open plates are continuous.
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=open
+door_id_0: row=8,col=8,id=workshop_gate
+continuous_door_0: row=3,col=8,key=gold
+continuous_door_1: row=2,col=8,key=master
+plate_1: target=demo_gate_a,effect=open
+door_id_1: row=6,col=12,id=demo_gate_a
+plate_2: target=demo_gate_b,effect=open
+door_id_2: row=6,col=14,id=demo_gate_b
+notice_0: Doors stay open only while their key remains in the lock.
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. eD rB eD .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. b1 .. p2 .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. ##
+## .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

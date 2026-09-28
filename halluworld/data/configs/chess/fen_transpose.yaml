@@ -1,0 +1,8 @@
+track: chess
+suite: chess_standard
+extends: _base.yaml
+
+observation:
+  INCLUDE_FEN: 1
+  OBSERVATION_FEN_MODE: transpose
+  OBSERVATION_FEN_SEED: 7

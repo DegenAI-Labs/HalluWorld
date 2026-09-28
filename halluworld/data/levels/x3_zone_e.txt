@@ -1,0 +1,33 @@
+; X3 · Facility Tour (7-zone) — Zone E (The Control Room)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   NoticeBoardObject  at row=1, col=4   (TRUE testimony about Zone A)
+;   K(blue)×1          at row=3, col=8
+;   B(red)×2           at row=5, cols=2,11
+;
+; Notice board: confirms Zone A exactly (4 rK, 3 bB, 2 gK, 1 rB, yellow door LOCKED)
+;
+; Hallucination traps:
+;   - Blue key here (same type as Zone B's 3 bK) — may bleed into Zone B count
+;   - Red balls here (same type as Zone A's 1 rB and Zone B's 1 rB) — zone attribution
+;   - Zone E is an accurate source; model must distinguish from false sources C and D
+;   - No red keys → contributes 0 to total rK
+
+agent_view_size: 15
+notice_0: Control Room verification log. Zone A (Specimen Lab) confirmed inventory: 4 red keys, 3 blue balls, 2 green keys, 1 red ball, yellow door LOCKED.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. n0 .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. bK .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. rB .. .. .. .. .. .. .. .. rB .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,29 @@
+{
+  "level_name": "harder_array",
+  "static_probe_location": [
+    8,
+    12
+  ],
+  "innav_start_position": null,
+  "navigation_target_locations": [
+    [
+      8,
+      12
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      6
+    ]
+  ],
+  "navigation_params": {
+    "max_steps": 50,
+    "min_steps": 10,
+    "sufficiency_distance": 3.0,
+    "min_distance_from_start": 5.0
+  },
+  "notes": "P4 Harder Array - perception level with pattern violations. Dense arrays with exceptions (blue key in red keys, etc). Use Symbolic or Grid serializer."
+}

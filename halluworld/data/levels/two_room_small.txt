@@ -1,0 +1,15 @@
+;; two_room_small.txt — compact two-room env (9×9)
+;; Left room: agent + red key.  Right room: goal.
+;; Dividing wall at row 4 with a locked door at col 4.
+agent_view_size: 5
+see_through_walls: false
+
+## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. ##
+## .. A. rK .. .. .. .. ##
+## .. .. .. .. .. .. .. ##
+## ## ## ## rD ## ## ## ##
+## .. .. .. .. .. .. .. ##
+## .. .. .. ** .. .. .. ##
+## .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ##

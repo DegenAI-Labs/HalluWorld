@@ -1,0 +1,48 @@
+; M1 The River Field
+;
+; Grid: 22 cols x 16 rows. Agent at (col=10, row=14) facing north.
+; view_size=7 -- river (rows 4-6) and forest (rows 0-3) outside direct FOV.
+; MemorySerializer (full-grid) is used for this level.
+;
+; River zone: rows 4-6, cols 2-8, flowing east, speed=1
+;   K(red)  at (col=7, row=4) -- wet_turns=2 (entered river 2 steps ago)
+;   B(blue) at (col=3, row=5) -- wet_turns=4 (just entered river)
+;
+; Timeline (apply_river_physics then decay_wet_conditions each step):
+;   step 0:  rK at (7,4) wet(2),       bB at (3,5) wet(4)
+;   step 1:  rK at (8,4) wet(4),       bB at (4,5) wet(4)
+;   step 2:  rK exits to (9,4) wet(3), bB at (5,5) wet(4)
+;   step 3:  rK at (9,4) wet(2),       bB at (6,5) wet(4)
+;   step 4:  rK at (9,4) wet(1),       bB at (7,5) wet(4)
+;   step 5:  rK DRIES,                 bB at (8,5) wet(4)
+;   step 6:  rK DRY,                   bB exits to (9,5) soaked(3)
+;   step 7:  rK DRY,                   bB soaked(2)
+;   step 8:  rK DRY,                   bB soaked(1)
+;   step 9:  rK DRY,                   bB DRIES
+; rK exits to row 4, bB exits to row 5 -- no collision.
+
+agent_view_size: 7
+river_rows: 4-6
+river_cols: 2-8
+river_dir: east
+river_speed: 1
+notice_0: [t=0] red key: row 4 col 7, WET(2) | blue ball: row 5 col 3, WET(4) | both in river (cols 2-8 rows 4-6 flowing east)
+prewet_0: row=5,col=3,turns=4
+prewet_1: row=4,col=7,turns=2
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. yK .. TT .. TT .. .. .. .. .. .. .. .. gK .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. rB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. ~E ~E ~E ~E ~E rK ~E .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. ~E bB ~E ~E ~E ~E ~E .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. ~E ~E ~E ~E ~E ~E ~E .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gB .. .. .. .. .. .. .. .. .. .. .. .. bK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. n0 .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

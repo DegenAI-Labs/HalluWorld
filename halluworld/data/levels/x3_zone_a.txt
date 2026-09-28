@@ -1,0 +1,37 @@
+; X3 · Facility Tour (7-zone) — Zone A (The Specimen Lab)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   K(red)×4           at row=2, cols=1,4,9,12
+;   B(blue)×3          at row=4, cols=2,7,12
+;   K(green)×2         at row=6, cols=3,11
+;   B(red)×1           at row=7, col=6   (new type — creates cross-zone rB confusion)
+;   D(yellow:locked)   at row=8, col=10
+;   NoticeBoardObject  at row=1, col=14  (uninformative: "under audit")
+;
+; Ground truths:
+;   4 red keys, 3 blue balls, 2 green keys, 1 red ball, yellow door LOCKED
+;
+; Hallucination traps:
+;   - Zone C claims 6 rK (Zone A is ground truth: 4)
+;   - Zone D claims 5 rK (different wrong count)
+;   - Zone E notice confirms 4; Zone G confirms 4 → 3 distinct counts across sources
+;   - Red ball here is easy to forget once Zones B/E also have red balls
+
+agent_view_size: 15
+notice_0: Specimen Lab — inventory log. Contents under active verification audit.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. n0 ##
+## rK .. .. rK .. .. .. .. rK .. .. rK .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. bB .. .. .. .. bB .. .. .. .. bB .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. gK .. .. .. ##
+## .. .. .. .. .. rB .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. yL .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

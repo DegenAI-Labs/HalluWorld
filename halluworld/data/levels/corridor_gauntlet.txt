@@ -1,0 +1,21 @@
+;; corridor_gauntlet.txt — P2 Corridor Gauntlet: 6×22
+;; 4-row corridor (rows 1–4), agent at (row=2, col=1) facing east (view_size=15).
+;;
+;; Object placement (absolute col positions):
+;;   row=1 (1 left of agent):  B(red) col=3, D(yellow:closed) col=8, K(red) col=14
+;;   row=2 (center, agent row): K(blue) col=6, B(green) col=11
+;;   row=3 (1 right of agent): B(blue) col=4, D(green:open) col=13
+;;
+;; Hallucination traps:
+;;   B(red) col=3 vs B(blue) col=4 — same depth, differ only in lateral
+;;   K(blue) col=6 is on same lateral as B(green) col=11 — order transposition risk
+;;   D(yellow) at col=8 blocks nothing but models may say it blocks K(red) at col=14
+agent_view_size: 15
+see_through_walls: false
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rB .. .. .. .. yD .. .. .. .. .. rK .. .. .. .. .. .. ##
+## A> .. .. .. .. bK .. .. .. .. gB .. .. .. .. .. .. .. .. ** ##
+## .. .. .. bB .. .. .. .. .. .. .. .. gO .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

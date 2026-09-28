@@ -1,0 +1,62 @@
+; C1a Persistent Chain
+;
+; Grid: 18 cols x 14 rows. Agent at (col=7, row=12) facing north.
+; view_size=7
+;
+; Layout:
+;   rows 0-2:  GOAL ZONE
+;     GOAL           at (col=7, row=1)
+;     D(iron:locked) at (col=7, row=2)   ← opened by K(master); effect=persistent
+;
+;   rows 3-5:  VAULT ZONE
+;     D(wood:locked) at (col=7, row=3)   ← opened by K(gold); effect=persistent
+;     K(master)      at (col=5, row=4)   — behind wood door (inaccessible until wood door open)
+;
+;   rows 6-8:  WORKSHOP ZONE
+;     K(gold)        at (col=3, row=6)   — freely pickupable
+;     BO (Boulder)   at (col=6, row=7)   — pushable; push east onto plate at (col=9, row=7)
+;     p0 (PressurePlate, effect=trigger, target=workshop_gate) at (col=9, row=7)
+;     D(workshop_gate:closed) at (col=7, row=8) ← one-shot trigger: opens permanently when plate weighted
+;
+;   rows 9-12: AGENT START ZONE
+;     n0 (Notice board) at (col=2, row=9): "Doors opened with keys stay open. Plates trigger gates once."
+;     TT (tree) distractors at (col=2, row=10), (col=13, row=10)
+;     B(red) distractor at (col=13, row=6)
+;     K(yellow) distractor (decoy key — wrong color) at (col=14, row=4)
+;
+; Dependency chain:
+;   push Boulder → plate triggers → workshop gate opens (PERMANENT)
+;   → enter workshop → pick up K(gold)
+;   → K(gold) opens wood door (PERMANENT)
+;   → pick up K(master)
+;   → K(master) opens iron door (PERMANENT)
+;   → reach GOAL
+;
+; Plate metadata: plate_0 → target=workshop_gate, effect=trigger
+; Door metadata:  door_id_0 → the D at (col=7, row=8) = workshop_gate
+;
+; Hallucination trap: model may think removing the boulder after trigger
+; re-closes the gate (confusing trigger=one-shot with continuous=open).
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=trigger
+door_id_0: row=8,col=8,id=workshop_gate
+plate_1: target=demo_gate,effect=trigger
+door_id_1: row=6,col=14,id=demo_gate
+plate_1_pretriggered: true
+notice_0: Doors opened with keys stay open permanently.
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. .. rB eD .. .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. BO .. p1 .. .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. .. ##
+## .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,40 @@
+; U4 — The Amnesiac  · Observation 1
+;
+; Grid: 20 cols × 16 rows. Agent at (col=8, row=14) facing north.
+;
+; Objects:
+;   D(yellow:closed) at (row=1, col=8)
+;   ~~ (active fire)  at (row=5, col=11)
+;   B(red)            at (row=7, col=4)
+;   B(green)          at (row=7, col=12)
+;   K(red)            at (row=9, col=2)
+;   K(blue)           at (row=9, col=14)
+;   B(purple)         at (row=11, col=8)
+;   Notice board      at (row=13, col=3)
+;
+; State: door closed, fire active, green ball at col 12 row 7.
+; Hallucination traps (cross-observation):
+;   - "Did you open the door?" → NO  (door was closed when agent left)
+;   - "Did you move the green ball?" → NO  (agent didn't interact)
+;   - "Who opened the door?" → cannot_determine
+;   - "What extinguished the fire?" → cannot_determine
+
+agent_view_size: 23
+notice_0: Maintenance log #001: Scheduled inspection initiated.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. yD .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. ~~ .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. rB .. .. .. .. .. .. .. gB .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. rK .. .. .. .. .. .. .. .. .. .. .. bK .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. pB .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

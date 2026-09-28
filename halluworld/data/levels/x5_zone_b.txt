@@ -1,0 +1,34 @@
+; X5 · Facility Tour — Zone B (The Records Hall)
+;
+; Source: witness_chamber1.txt (M2 · Witness Stand — Chamber 1)
+; Grid: 10 rows × 16 cols. Agent at (row=8, col=7) facing north.
+; view_size=9 → sees rows 0–7, cols 3–11 (all objects within FOV).
+;
+; Objects (ground truth — clean anchor zone, no signpost):
+;   K(red)×4   at row=1, cols=3,5,9,11  ← four red keys — same room as X4 Zone A
+;   B(blue)×2  at row=3, cols=4,10
+;   K(blue)×1  at row=4, col=7          ← one blue key impostor in red-heavy zone
+;   D(yellow:locked) at row=5, col=5
+;   B(purple)×1 at row=5, col=9
+;
+; Hallucination traps (across tour):
+;   - This is the same room as X4 Zone A — models that saw X4 may recognise it
+;   - Zone D signpost will claim Zone B had 3 rK (wrong — it's 4)
+;   - Zone C signpost correctly claims Zone B had 4 rK
+;   - Zone C signpost will claim Zone B door is OPEN (wrong — it's locked)
+;   - Zone E signpost will correctly claim Zone B had 4 rK
+;   - Zone F signpost will correctly claim Zone B had 4 rK
+;   - Conflicting door state claims: Zone C says open; Zone E says locked (which is true!)
+
+agent_view_size: 9
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. rK .. .. .. rK .. rK .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. bB .. .. .. .. ##
+## .. .. .. .. .. .. bK .. .. .. .. .. .. .. ##
+## .. .. .. .. yL .. .. .. pB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

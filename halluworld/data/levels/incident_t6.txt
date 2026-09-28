@@ -1,0 +1,29 @@
+; M3 · Incident Report — Observation 2 (Step 6)
+;
+; Identical to incident_t0.txt except for exactly 3 changes:
+;   CHANGE 1 (color swap):   B(blue) row=3 col=6  → B(red)
+;   CHANGE 2 (state change): D(purple:open) row=5 col=10 → D(purple:closed)
+;   CHANGE 3 (removal):      K(green) row=7 col=11 → empty floor
+;
+; Total objects: 13  (was 14 — one removed)
+;
+; Traps:
+;   - B(blue) at row=2 col=9 is STILL PRESENT: "are there blue balls in obs2?" → yes
+;   - D(yellow:open) at row=5 col=4 is UNCHANGED: wrong answer = "yellow door changed"
+;   - B(red) at row=8 col=7 is UNCHANGED: model may conflate with new B(red) at row=3 col=6
+;   - No objects were ADDED: addition probe → no
+
+agent_view_size: 11
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. rK .. .. .. bK .. .. .. rK .. .. .. ##
+## .. .. .. .. .. .. .. .. bB .. .. .. .. .. ##
+## .. .. gB .. .. rB .. .. .. .. gB .. .. .. ##
+## .. .. .. .. .. .. yK .. .. .. .. .. .. .. ##
+## .. .. .. yO .. .. .. .. .. pD .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. eK .. .. .. pB .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. rB .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

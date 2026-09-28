@@ -1,0 +1,24 @@
+;; dense_array.txt — P1 Dense Array: 20×16 with patterned objects and violations
+;; Rows 1-3:  9×3 red key grid — one color violation (bK at row=2,col=8), one absence (row=3,col=4)
+;; Rows 5-7:  9×3 blue ball grid — color violations (rB at row=6,col=2; gB at row=7,col=9)
+;; Rows 9-10: yellow door pairs at cols 2,4,6,8 — state violations (open at row=9,col=8; locked at row=10,col=6)
+;; Pillars at (12,2),(12,8),(13,2),(13,8). Agent at (13,5) facing north with view_size=13.
+agent_view_size: 13
+see_through_walls: false
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## rK rK rK rK rK rK rK rK rK .. .. .. .. .. .. .. .. .. ##
+## rK rK rK rK rK rK rK bK rK .. .. .. .. .. .. .. .. .. ##
+## rK rK rK .. rK rK rK rK rK .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## bB bB bB bB bB bB bB bB bB .. .. .. .. .. .. .. .. .. ##
+## bB rB bB bB bB bB bB bB bB .. .. .. .. .. .. .. .. .. ##
+## bB bB bB bB bB bB bB bB gB .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. yD .. yD .. yD .. yO .. .. .. .. .. .. .. .. .. .. ##
+## .. yD .. yD .. yL .. yD .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. ## .. .. .. .. .. ## .. .. .. .. .. .. .. .. .. .. ##
+## .. ## .. .. A^ .. .. ## .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

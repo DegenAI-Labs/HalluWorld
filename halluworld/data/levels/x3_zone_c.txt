@@ -1,0 +1,34 @@
+; X3 · Facility Tour (7-zone) — Zone C (The Records Office)
+;
+; Grid: 16 cols × 12 rows. Agent at (col=7, row=10) facing north.
+; view_size=15 → sees all interior cells (rows 1-10, cols 1-14).
+;
+; Objects:
+;   SignpostObject     at row=1, col=2   (FALSE testimony about Zone A)
+;   K(red)×1           at row=2, col=6
+;   B(green)×1         at row=4, col=9   (green BALL — compounds type confusion with Zone A's green KEYS)
+;   D(yellow:open)     at row=7, col=12  (open door — matches the false claim about Zone A's door)
+;
+; Signpost text: "Zone A has 6 red keys. Yellow access door: OPEN." — BOTH FALSE
+;   True Zone A: 4 red keys, yellow door LOCKED
+;
+; Hallucination traps:
+;   - Overcounts rK for Zone A (6 vs truth 4)
+;   - Falsely flips Zone A door to OPEN
+;   - Green ball here compounds Zone A's green key vs green ball confusion
+
+agent_view_size: 15
+sign_0: RECORDS ENTRY — Zone A (Specimen Lab) last verified count: 6 red keys in secure storage. Yellow access door: OPEN.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. s0 .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. rK .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. gB .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. yO .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

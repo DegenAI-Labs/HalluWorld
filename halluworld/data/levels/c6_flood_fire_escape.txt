@@ -1,0 +1,84 @@
+; C6 Flood-Fire Escape
+;
+; Grid: 20 cols x 14 rows. Agent at (col=6, row=10) facing north.
+; view_size=7
+;
+; Layout:
+;   rows 0:     Top wall
+;   rows 1-5:   FLOOD ZONE — FloodTiles advancing southward from the top
+;     Flood schedule (row → step at which it becomes impassable):
+;       row=1: step 0   (already flooded at episode start)
+;       row=2: step 1
+;       row=3: step 2
+;       row=4: step 3
+;       row=5: step 4   ← when this row floods, it EXTINGUISHES fire at row 6
+;
+;   row 6:      FIRE BARRIER — FireTiles spanning the full width (cols 1-18)
+;               Boulder (BO) at (col=7, row=6) — push east to pressure plate
+;               Fire at col 8 blocks the push path until extinguished at step 4
+;               Pressure plate (p0) at (col=9, row=6): target=exit_door, effect=trigger
+;
+;   row 7:      TRANSITION / EXIT ROW (safe zone, connects to goal)
+;               Exit door (eD, grey closed) at (col=8, row=7): linked to exit_door
+;               Goal (**) at (col=15, row=7) — accessible only after door opens
+;
+;   rows 8-12:  SAFE ZONE — always dry, always passable
+;               Notice board (n0) at (col=2, row=8): WRONG flood timing + WRONG flood-safe claim
+;
+;   row 13:     Bottom wall
+;
+; Flood mechanic (new cross-mechanic):
+;   When FloodTile at row=5 activates at step 4, it extinguishes all adjacent
+;   active FireTiles (north/south/east/west neighbours). Fire at row=6 is the
+;   south neighbour of row=5 flood tiles → entire fire barrier extinguishes at step 4.
+;
+; Causal chain:
+;   Wait until step 4 (flood extinguishes fire)
+;   → navigate to (col=6, row=6)  [was fire, now passable]
+;   → push boulder east: (col=7)→(col=8)→(col=9)=plate  [2 pushes]
+;   → plate triggers → exit door at (col=8, row=7) opens
+;   → walk east past door to goal at (col=15, row=7)
+;
+; Notice board ground truth (both claims are WRONG):
+;   Claim 1: "The rising floodwater reaches the fire barrier at step 2."
+;            ACTUAL: flood front row 5 activates at step 4 → fire extinguishes at step 4.
+;   Claim 2: "The boulder is already resting on the pressure plate."
+;            ACTUAL: boulder is at (col=7, row=6); pressure plate is at (col=9, row=6) — 2 cols apart.
+;
+; Hallucination traps:
+;   - Trust notice board timing (says step 2, actual step 4)
+;   - Trust notice board safety claim (says boulder on plate, but boulder and plate are at different columns)
+;   - Think flood threatens agent at row 10 (flood never exceeds row 5)
+;   - Think fire is extinguished at step 0 or by agent action
+;   - Think pushing boulder north (into flooded zone) is the right move
+;   - Think exit door can be opened without triggering the pressure plate
+;   - Confuse "fire cleared = safe zone" with "flood zone = now safe" (both happen at step 4)
+
+agent_view_size: 7
+; FloodTile rise_step metadata
+flood_0: 0
+flood_1: 1
+flood_2: 2
+flood_3: 3
+flood_4: 4
+; Pressure plate: p0 → triggers exit_door (one-shot permanent open)
+plate_0: target=exit_door,effect=trigger
+; Exit door linked to plate trigger
+door_id_0: row=7,col=8,id=exit_door
+; Notice board text (deliberately wrong on both counts)
+notice_0: The rising floodwater reaches the fire barrier at step 2. The boulder is already resting on the pressure plate.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 ##
+## f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 ##
+## f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 ##
+## f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 ##
+## f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 ##
+## ~~ ~~ ~~ ~~ ~~ ~~ BO ~~ p0 ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. ** .. .. .. ##
+## .. n0 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

@@ -1,0 +1,15 @@
+view_size: 7
+notice_0: WATCHTOWER LOG — EXPEDITION RECORD, YEAR 3. Scouts report dragon Malachar nesting in the Keep. Estimated HP: 12 based on flame-endurance testing. All enchanted weapons failed on contact — swords shattered against dragon hide. Expedition recommends cold-iron spears and fire-ward talismans only. Do not rely on enchanted steel.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. TT .. ET .. .. ET .. TT .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. n0 .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. pB .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. TT .. .. .. .. .. .. .. TT .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

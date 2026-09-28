@@ -1,0 +1,87 @@
+; C3 Flood Room
+;
+; Grid: 20 cols x 16 rows. Agent at (col=7, row=14) facing north.
+; view_size=7
+;
+; Layout:
+;   rows 0-2:   DRY HIGH GROUND — always safe (elevated, water never reaches)
+;     GOAL          at (col=8, row=1)
+;     TT            at (col=4, row=2), (col=12, row=2)
+;
+;   rows 3-13:  FLOOD ZONE — FloodTile rows (each row floods at a fixed step)
+;     Flood schedule (row → step at which it becomes impassable):
+;       row=13: step 0   (already flooded at episode start)
+;       row=12: step 1
+;       row=11: step 2
+;       row=10: step 3
+;       row= 9: step 4
+;       row= 8: step 5
+;       row= 7: step 6
+;       row= 6: step 7
+;       row= 5: step 8
+;       row= 4: step 9
+;       row= 3: step 10
+;
+;     K(blue)  at (col=4, row=6)  — on ElevatedTile (flood-immune, can be retrieved until step 7)
+;     B(red)   at (col=12, row=8) — NOT elevated, floods at step 5
+;     D(brown:closed)  at (col=8, row=5) — blocks direct path, floods at step 8
+;     NoticeBoardObject at (col=2, row=3): "Water rises one row per step."
+;
+;   rows 14-15: AGENT START ZONE — always dry
+;
+; Two routes from agent (col=7, row=14) to goal (col=8, row=1):
+;   Direct (7 steps):  straight north, crosses row 8 at step ~2 (safe), row 6 at step ~4
+;                      (safe — floods at step 7), reaches goal at step ~7
+;   NOTE: Door at row 5 col 8 blocks center path — must go around east or west
+;
+; Flood probe ground truths at step=0:
+;   row 8 passable? YES (floods at step 5)
+;   row 6 passable? YES (floods at step 7)
+;   red ball still reachable? YES (floods at step 5)
+;   notice board row still passable? YES (floods at step 10)
+;
+; The serializer reports:
+;   [Flood]: Water has reached row 13. Rows 13 and above are flooded and impassable.
+;   (After step 5: rows 8-13 flooded)
+;
+; Hallucination traps:
+;   - Model reasons about current passability instead of future passability during transit
+;   - Model ignores time elapsed en route ("row 8 is passable now" ≠ "safe when I get there")
+;   - Model treats eastern detour as safe without computing step count vs flood schedule
+
+agent_view_size: 7
+; FloodTile rise_step metadata: flood_N → rise_step value
+; f0=step 0 (row13), f1=step 1 (row12), f2=step 2 (row11), f3=step 3 (row10),
+; f4=step 4 (row9),  f5=step 5 (row8),  f6=step 6 (row7),  f7=step 7 (row6),
+; f8=step 8 (row5),  f9=step 9 (row4),  fa=step 10 (row3)
+flood_0: 0
+flood_1: 1
+flood_2: 2
+flood_3: 3
+flood_4: 4
+flood_5: 5
+flood_6: 6
+flood_7: 7
+flood_8: 8
+flood_9: 9
+flood_a: 10
+; elevated_cell_0 declares (col=4, row=7) as flood-immune elevated ground
+elevated_cell_0: row=7,col=4
+notice_0: Water rises one row per step.
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. TT .. .. .. .. .. .. .. TT .. .. .. .. .. .. ##
+## fa fa n0 fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa ##
+## f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 ##
+## f8 f8 f8 f8 f8 f8 f8 f8 eD f8 f8 f8 f8 f8 f8 f8 f8 f8 ##
+## f7 f7 f7 f7 ET f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 ##
+## f6 f6 f6 f6 bK f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 ##
+## f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 rB f5 f5 f5 f5 f5 ##
+## f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 ##
+## f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 ##
+## f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 ##
+## f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 f1 ##
+## f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##

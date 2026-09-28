@@ -1,0 +1,6 @@
+track: chess
+suite: chess_standard
+extends: _base.yaml
+
+observation:
+  INCLUDE_FEN: 0

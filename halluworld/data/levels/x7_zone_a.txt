@@ -1,0 +1,15 @@
+view_size: 7
+notice_0: Brave adventurer! To defeat the dragon Malachar in the Keep, you must find the enchanted sword in the Ancient Armory to the north. The armory gate is sealed — find the gold key first. I have heard the forest hermit knows a shortcut, but do not trust everything he says.
+
+## ## ## ## ## ## ## ## ## ## ## ## ## ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. n0 .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. bB .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. yK .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. A^ .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ##

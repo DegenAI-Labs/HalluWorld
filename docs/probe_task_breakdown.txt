@@ -1,0 +1,1082 @@
+DETAILED TASK BREAKDOWN
+====================================================================================================
+
+
+Task: 3d-model-format-legacy
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: acl-permissions-inheritance
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: adaptive-rejection-sampler
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: add-benchmark-lm-eval-harness
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: ancient-puzzle
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+
+Task: attention-mil
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    causal                      1
+    perceptual                  1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: bank-trans-filter
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: bn-fit-modify
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: break-filter-js-from-html
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    cross-tier compound         1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+
+Task: build-linux-kernel-qemu
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    causal                      1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: build-pov-ray
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    causal                      1
+    cross-tier compound         1
+    memory                      1
+    uncertainty                 1
+
+Task: build-tcc-qemu
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: caffe-cifar-10
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: cartpole-rl-training
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+
+Task: catch-me-if-you-can
+  Total probes: 1
+  Avg difficulty: 4.00
+  Probe types:
+    perceptual                  1
+
+Task: causal-inference-r
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    perceptual                  1
+    cross-tier compound         1
+    memory                      1
+    uncertainty                 1
+
+Task: chem-rf
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: circuit-fibsqrt
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: code-from-image
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: compile-compcert
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: constraints-scheduling
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: count-call-stack
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: count-dataset-tokens
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    uncertainty                 1
+    cross-tier compound         1
+    causal                      1
+    perceptual                  1
+    memory                      1
+
+Task: cpp-compatibility
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: cprofiling-python
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: crack-7z-hash
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: cross-entropy-method
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: custom-memory-heap-crash
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    memory                      1
+    perceptual                  1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: debug-long-program
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    memory                      1
+    causal                      1
+    perceptual                  1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: dna-assembly
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: dna-insert
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: download-youtube
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: enemy-grid-escape
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: extract-safely
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    causal                      1
+    cross-tier compound         1
+    memory                      1
+    uncertainty                 1
+
+Task: feal-differential-cryptanalysis
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: feal-linear-cryptanalysis
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: filter-js-from-html
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: financial-document-processor
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: fix-code-vulnerability
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: fix-permissions
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: fmri-encoding-r
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: get-bitcoin-nodes
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+
+Task: hdfs-deployment
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    causal                      1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: hf-train-lora-adapter
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: huarong-dao-solver
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: ilp-solver
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: incompatible-python-fasttext
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: inspect-dtype
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: install-windows-3.11
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+
+Task: install-windows-xp
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: interactive-maze-game
+  Total probes: 5
+  Avg difficulty: 4.00
+  Probe types:
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: jupyter-notebook-server
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    cross-tier compound         1
+    perceptual                  1
+    causal                      1
+    memory                      1
+    uncertainty                 1
+
+Task: lean4-proof
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: llm-inference-batching-scheduler
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: llm-spec-decoding
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: magsac-install
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    memory                      1
+    causal                      1
+    perceptual                  1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: mahjong-winninghand
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: mailman
+  Total probes: 3
+  Avg difficulty: 4.67
+  Probe types:
+    causal                      1
+    memory                      1
+    cross-tier compound         1
+
+Task: make-doom-for-mips
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: mcmc-sampling-stan
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: mteb-leaderboard
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    causal                      1
+    uncertainty                 1
+    perceptual                  1
+    memory                      1
+    cross-tier compound         1
+
+Task: mteb-retrieve
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    causal                      1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: multi-source-data-merger
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: neuron-to-jaxley-conversion
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: openssl-selfsigned-cert
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: optimal-transport
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: pandas-etl
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: parallelize-graph
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: path-tracing
+  Total probes: 2
+  Avg difficulty: 4.00
+  Probe types:
+    causal                      1
+    memory                      1
+
+Task: path-tracing-reverse
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: play-lord
+  Total probes: 1
+  Avg difficulty: 4.00
+  Probe types:
+    memory                      1
+
+Task: port-compressor
+  Total probes: 1
+  Avg difficulty: 5.00
+  Probe types:
+    cross-tier compound         1
+
+Task: portfolio-optimization
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    cross-tier compound         1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+
+Task: predicate-pushdown-bench
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    causal                      1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: protein-assembly
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    cross-tier compound         1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+
+Task: puzzle-solver
+  Total probes: 1
+  Avg difficulty: 5.00
+  Probe types:
+    memory                      1
+
+Task: query-optimize
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    uncertainty                 1
+    cross-tier compound         1
+    causal                      1
+    perceptual                  1
+    memory                      1
+
+Task: regex-chess
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: reshard-c4-data
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: reverse-engineering
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: rstan-to-pystan
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: run-pdp11-code
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    uncertainty                 1
+    causal                      1
+    perceptual                  1
+    cross-tier compound         1
+
+Task: sam-cell-seg
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: solana-data
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: solve-maze-challenge
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: solve-sudoku
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: speech-to-text
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: spinning-up-rl
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    causal                      1
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+
+Task: spring-messaging-vul
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: sql-injection-attack
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: sqlite-with-gcov
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: stable-parallel-kmeans
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: string-file-search
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+
+Task: sudo-llvm-ir
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    causal                      1
+    perceptual                  1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: swe-bench-astropy-2
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    cross-tier compound         1
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+
+Task: swe-bench-fsspec
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: torch-pipeline-parallelism
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: torch-tensor-parallelism
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: train-bpe-tokenizer
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    cross-tier compound         1
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+
+Task: train-fasttext
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    causal                      1
+    memory                      1
+    perceptual                  1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: transcribe-audio
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: triton-interpret
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: video-processing
+  Total probes: 5
+  Avg difficulty: 4.00
+  Probe types:
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+    perceptual                  1
+
+Task: vimscript-vim-quine
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: vul-flask
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    causal                      1
+    memory                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: vul-flink
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: vulnerable-secret
+  Total probes: 5
+  Avg difficulty: 4.40
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: winning-avg-corewars
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    cross-tier compound         1
+    memory                      1
+    perceptual                  1
+    causal                      1
+    uncertainty                 1
+
+Task: word2vec-from-scratch
+  Total probes: 5
+  Avg difficulty: 4.20
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1
+
+Task: write-compressor
+  Total probes: 5
+  Avg difficulty: 4.60
+  Probe types:
+    perceptual                  1
+    memory                      1
+    causal                      1
+    uncertainty                 1
+    cross-tier compound         1

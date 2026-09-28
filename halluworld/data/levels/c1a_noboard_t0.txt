@@ -1,0 +1,25 @@
+; C1a Persistent Chain — NO BOARD — OBSERVATION 1 (previous step)
+;
+; Identical to c1a_persistent_chain_t0.txt except the notice board is absent.
+; Paired with c1a_noboard.txt as Observation 2.
+
+agent_view_size: 7
+plate_0: target=workshop_gate,effect=trigger
+door_id_0: row=8,col=8,id=workshop_gate
+plate_1: target=demo_gate,effect=trigger
+door_id_1: row=6,col=14,id=demo_gate
+
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. ** .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. eL .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. mK .. .. .. .. .. .. .. .. yK .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. gK .. .. .. .. .. .. .. .. .. rB eD .. .. ##
+## .. .. .. .. .. .. BO .. .. p0 .. .. .. b1 .. .. ##
+## .. .. .. .. .. .. .. eD .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. TT .. .. .. .. .. .. .. .. .. TT .. .. .. ##
+## .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ##
+## .. .. .. .. .. .. .. A^ .. .. .. .. .. .. .. .. ##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
